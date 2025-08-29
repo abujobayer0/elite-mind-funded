@@ -15,9 +15,7 @@ export default function ContactSection() {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 mb-16">
           {/* Left Column - Contact Information */}
           <div>
-            <Badge className="w-[100px] h-[30px] bg-[#1a1a1a] border border-white/10 mb-6">
-              Contact Us
-            </Badge>
+            <Badge>Contact Us</Badge>
             <h2 className="text-white text-3xl md:text-5xl font-bold mb-4">
               Fill Out The <span className="text-[#f6a91b]">Form</span>
             </h2>

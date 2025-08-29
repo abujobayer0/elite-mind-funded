@@ -45,9 +45,7 @@ export default function PricingComparisonSection() {
     <section className="relative bg-black py-20">
       <div className="max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-10">
-          <Badge className="w-[100px] h-[30px] bg-[#1a1a1a] border border-white/10">
-            Comparison
-          </Badge>
+          <Badge>Comparison</Badge>
           <h2 className="text-[#f6a91b] text-3xl md:text-5xl font-bold mt-4">
             Why Elite Mind Funding?
           </h2>

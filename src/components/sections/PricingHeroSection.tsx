@@ -200,7 +200,7 @@ export default function PricingHeroSection() {
         </div>
 
         {/* Phase Cards */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-16">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-12 mb-16 mx-[12px]">
           {phaseData.map((phase) => (
             <PhaseCard
               key={phase.id}

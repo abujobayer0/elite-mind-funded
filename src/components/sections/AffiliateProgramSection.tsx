@@ -25,9 +25,7 @@ export default function AffiliateProgramSection() {
     <section className="relative bg-black py-20">
       <div className="max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-10">
-          <Badge className="w-[132px] h-[30px] bg-[#1a1a1a] border border-white/10">
-            Affiliate Program
-          </Badge>
+          <Badge>Affiliate Program</Badge>
           <h1 className="text-white text-3xl md:text-6xl font-bold mt-4">
             Refer & Earn <span className="text-[#f6a91b]">Big</span> With EMF
           </h1>

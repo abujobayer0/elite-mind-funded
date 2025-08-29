@@ -38,14 +38,12 @@ export default function FeaturesSection() {
     <section className="relative bg-black py-20">
       <div className="max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-10">
-          <Badge className="w-[100px] h-[30px] bg-[#1a1a1a] border border-white/10">
-            Features
-          </Badge>
+          <Badge>Features</Badge>
           <h2 className="text-white text-3xl md:text-5xl font-bold mt-4">
             Elite Mind Funding <span className="text-[#f6a91b]">Features</span>
           </h2>
           <p className="text-gray-400 mt-3 max-w-3xl mx-auto text-sm md:text-base">
-            Whether You're Looking For Speed, Accessibility, Structure, Or
+            Whether You&apos;re Looking For Speed, Accessibility, Structure, Or
             Flexibility.
           </p>
         </div>
@@ -56,7 +54,7 @@ export default function FeaturesSection() {
               key={feature.title}
               title={feature.title}
               subtitle={feature.subtitle}
-              highlighted={feature.highlighted}
+              emphasis={feature.highlighted}
             >
               <div className="w-12 h-12 rounded-xl bg-[#1f1808] ring-1 ring-[#f6a91b]/30 flex items-center justify-center text-[#f6a91b] text-2xl font-bold">
                 {feature.icon}

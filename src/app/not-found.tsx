@@ -8,9 +8,7 @@ export default function NotFound() {
       <main className="flex-1 flex items-center justify-center py-20">
         <div className="text-center max-w-2xl mx-auto px-4">
           {/* 404 Badge */}
-          <Badge className="w-[100px] h-[30px] bg-[#1a1a1a] border border-white/10 mb-6">
-            404 Error
-          </Badge>
+          <Badge>404 Error</Badge>
 
           {/* Main Title */}
           <h1 className="text-white text-4xl md:text-6xl font-bold mb-4">

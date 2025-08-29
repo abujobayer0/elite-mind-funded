@@ -24,9 +24,7 @@ export default function PayoutsSection() {
     <section className="relative bg-black py-20">
       <div className="max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-10">
-          <Badge className="w-[86px] h-[30px] bg-[#1a1a1a] border border-white/10">
-            Payouts
-          </Badge>
+          <Badge>Payouts</Badge>
           <h2 className="text-white text-3xl md:text-5xl font-bold mt-4">
             Trusted By Traders <span className="text-[#f6a91b]">Worldwide</span>
           </h2>

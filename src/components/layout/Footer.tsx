@@ -3,6 +3,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import { Button } from "@/components";
+import UserIcon from "../icons/UserIcon";
 
 export default function Footer() {
   return (
@@ -20,66 +21,43 @@ export default function Footer() {
 
             {/* Social Media Icons */}
             <div className="flex space-x-3">
-              <Link
-                href="#"
-                className="w-10 h-10 bg-gray-800 border border-gray-600 rounded-lg flex items-center justify-center text-white hover:bg-gray-700 transition-colors"
-              >
-                <Image
-                  src="/assets/social/X.png"
-                  alt="X (Twitter)"
-                  width={20}
-                  height={20}
-                  className="w-5 h-5 object-contain"
-                />
-              </Link>
-              <Link
-                href="#"
-                className="w-10 h-10 bg-gray-800 border border-gray-600 rounded-lg flex items-center justify-center text-white hover:bg-gray-700 transition-colors"
-              >
-                <Image
-                  src="/assets/social/Insta.png"
-                  alt="Instagram"
-                  width={20}
-                  height={20}
-                  className="w-5 h-5 object-contain"
-                />
-              </Link>
-              <Link
-                href="#"
-                className="w-10 h-10 bg-gray-800 border border-gray-600 rounded-lg flex items-center justify-center text-white hover:bg-gray-700 transition-colors"
-              >
-                <Image
-                  src="/assets/social/Discord.png"
-                  alt="Discord"
-                  width={20}
-                  height={20}
-                  className="w-5 h-5 object-contain"
-                />
-              </Link>
-              <Link
-                href="#"
-                className="w-10 h-10 bg-gray-800 border border-gray-600 rounded-lg flex items-center justify-center text-white hover:bg-gray-700 transition-colors"
-              >
-                <Image
-                  src="/assets/social/tele.png"
-                  alt="Telegram"
-                  width={20}
-                  height={20}
-                  className="w-5 h-5 object-contain"
-                />
-              </Link>
-              <Link
-                href="#"
-                className="w-10 h-10 bg-gray-800 border border-gray-600 rounded-lg flex items-center justify-center text-white hover:bg-gray-700 transition-colors"
-              >
-                <Image
-                  src="/assets/social/youtube.png"
-                  alt="YouTube"
-                  width={20}
-                  height={20}
-                  className="w-5 h-5 object-contain"
-                />
-              </Link>
+              {[
+                { href: "#", src: "/assets/social/X.png", alt: "X (Twitter)" },
+                {
+                  href: "#",
+                  src: "/assets/social/Insta.png",
+                  alt: "Instagram",
+                },
+                {
+                  href: "#",
+                  src: "/assets/social/Discord.png",
+                  alt: "Discord",
+                },
+                { href: "#", src: "/assets/social/tele.png", alt: "Telegram" },
+                {
+                  href: "#",
+                  src: "/assets/social/youtube.png",
+                  alt: "YouTube",
+                },
+              ].map((social, index) => (
+                <Link
+                  key={index}
+                  href={social.href}
+                  className="w-[34px] h-[34px] bg-gradient-to-br from-[rgba(246,169,28,0)] to-[rgba(246,169,28,0.1)] rounded-[8px] flex items-center justify-center text-white hover:opacity-80 transition-colors border border-[#f6a91b]/10"
+                  style={{
+                    background:
+                      "linear-gradient(130deg, rgba(246, 169, 28, 0) 0%, rgba(246, 169, 28, 0.1) 100%)",
+                  }}
+                >
+                  <Image
+                    src={social.src}
+                    alt={social.alt}
+                    width={20}
+                    height={20}
+                    className="w-5 h-5 object-contain"
+                  />
+                </Link>
+              ))}
             </div>
 
             <Button
@@ -94,104 +72,70 @@ export default function Footer() {
 
           {/* Middle Columns - Navigation */}
           <div className="lg:col-span-2 grid grid-cols-1 md:grid-cols-3 gap-8">
-            <div>
-              <h3 className="text-white font-semibold mb-4 text-lg">
-                Our Links
-              </h3>
-              <div className="space-y-3">
-                <Link
-                  href="/pricing"
-                  className="block hover:text-white transition-colors"
-                >
-                  Our Pricing
-                </Link>
-                <Link
-                  href="/dashboard"
-                  className="block hover:text-white transition-colors"
-                >
-                  Our Dashboard
-                </Link>
-                <Link
-                  href="/partner"
-                  className="block hover:text-white transition-colors"
-                >
-                  Become A Partner
-                </Link>
-                <Link
-                  href="/about"
-                  className="block hover:text-white transition-colors"
-                >
-                  About Us
-                </Link>
+            {[
+              {
+                title: "Our Links",
+                links: [
+                  { href: "/pricing", text: "Our Pricing" },
+                  { href: "/dashboard", text: "Our Dashboard" },
+                  { href: "/partner", text: "Become A Partner" },
+                  { href: "/about", text: "About Us" },
+                ],
+              },
+              {
+                title: "Our Policies",
+                links: [
+                  { href: "/terms", text: "Terms Of Service" },
+                  { href: "/privacy", text: "Privacy Policy" },
+                  { href: "/refund", text: "Refund Policy" },
+                ],
+              },
+              {
+                title: "Contact Us",
+                links: [
+                  { href: "/email", text: "Our Email" },
+                  { href: "/chat", text: "Live Chat" },
+                  { href: "/faqs", text: "FAQs" },
+                ],
+              },
+            ].map((column, columnIndex) => (
+              <div key={columnIndex}>
+                <h3 className="text-white font-semibold mb-4 text-lg">
+                  {column.title}
+                </h3>
+                <div className="space-y-3">
+                  {column.links.map((link, linkIndex) => (
+                    <Link
+                      key={linkIndex}
+                      href={link.href}
+                      className="block hover:text-white transition-colors"
+                    >
+                      {link.text}
+                    </Link>
+                  ))}
+                </div>
               </div>
-            </div>
-
-            <div>
-              <h3 className="text-white font-semibold mb-4 text-lg">
-                Our Policies
-              </h3>
-              <div className="space-y-3">
-                <Link
-                  href="/terms"
-                  className="block hover:text-white transition-colors"
-                >
-                  Terms Of Service
-                </Link>
-                <Link
-                  href="/privacy"
-                  className="block hover:text-white transition-colors"
-                >
-                  Privacy Policy
-                </Link>
-                <Link
-                  href="/refund"
-                  className="block hover:text-white transition-colors"
-                >
-                  Refund Policy
-                </Link>
-              </div>
-            </div>
-
-            <div>
-              <h3 className="text-white font-semibold mb-4 text-lg">
-                Contact Us
-              </h3>
-              <div className="space-y-3">
-                <Link
-                  href="/email"
-                  className="block hover:text-white transition-colors"
-                >
-                  Our Email
-                </Link>
-                <Link
-                  href="/chat"
-                  className="block hover:text-white transition-colors"
-                >
-                  Live Chat
-                </Link>
-                <Link
-                  href="/faqs"
-                  className="block hover:text-white transition-colors"
-                >
-                  FAQs
-                </Link>
-              </div>
-            </div>
+            ))}
           </div>
 
           {/* Right Column - Subscription and Payment */}
           <div className="space-y-6">
             <div>
-              <div className="flex">
-                <input
-                  type="email"
-                  placeholder="Enter your email"
-                  className="flex-1 px-4 py-3 bg-gray-800 border border-gray-700 rounded-l-lg text-white placeholder-gray-400 focus:outline-none focus:border-orange-400"
-                />
+              <div className="flex gap-2">
+                <div className="flex-1 relative">
+                  <div className="absolute left-3 top-1/2 transform -translate-y-1/2">
+                    <UserIcon />
+                  </div>
+                  <input
+                    type="email"
+                    placeholder="Enter your email"
+                    className="w-full px-4 py-2 pl-10 bg-white/5 border border-white/10 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:border-orange-400"
+                  />
+                </div>
                 <Button
                   variant="outline"
                   size="sm"
-                  className="rounded-l-none border-l-0 px-6 py-3 w-auto"
+                  className=" px-6 py-3 w-auto"
                   onClick={() => {
                     // Handle subscription logic here
                     console.log("Subscription submitted");
