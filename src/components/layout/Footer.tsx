@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import Image from "next/image";
+import { Button } from "@/components";
 
 export default function Footer() {
   return (
@@ -81,12 +82,14 @@ export default function Footer() {
               </Link>
             </div>
 
-            <Link
+            <Button
               href="/get-funded"
-              className="inline-block bg-transparent border border-[#f6a91c] text-[#f6a91c] hover:bg-[#f6a91c] hover:text-black px-6 py-3 rounded-lg transition-colors font-medium"
+              variant="outline"
+              size="sm"
+              className="w-auto px-6 py-3"
             >
               Get Funded Now
-            </Link>
+            </Button>
           </div>
 
           {/* Middle Columns - Navigation */}
@@ -185,9 +188,17 @@ export default function Footer() {
                   placeholder="Enter your email"
                   className="flex-1 px-4 py-3 bg-gray-800 border border-gray-700 rounded-l-lg text-white placeholder-gray-400 focus:outline-none focus:border-orange-400"
                 />
-                <button className="px-6 py-3 bg-transparent border border-orange-400 text-orange-400 hover:bg-orange-400 hover:text-black rounded-r-lg transition-colors font-medium">
+                <Button
+                  variant="outline"
+                  size="sm"
+                  className="rounded-l-none border-l-0 px-6 py-3 w-auto"
+                  onClick={() => {
+                    // Handle subscription logic here
+                    console.log("Subscription submitted");
+                  }}
+                >
                   Submit
-                </button>
+                </Button>
               </div>
             </div>
 

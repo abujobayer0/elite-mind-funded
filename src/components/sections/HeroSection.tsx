@@ -1,18 +1,39 @@
 "use client";
 
 import Link from "next/link";
-import { CheckIcon, StarIcon } from "@/components";
+import { Button, CheckIcon, StarIcon } from "@/components";
+import HeroGlow from "../icons/HeroGlow";
+import Image from "next/image";
 
 export default function HeroSection() {
   return (
-    <section className="relative bg-black min-h-[calc(100vh-114px)] flex items-center justify-center overflow-hidden">
-      {/* Background decorative elements */}
-      <div className="absolute inset-0 opacity-20">
-        <div className="absolute top-20 left-10 w-32 h-32 bg-gradient-to-r from-orange-400 to-yellow-400 rounded-full blur-3xl"></div>
-        <div className="absolute bottom-20 right-10 w-40 h-40 bg-gradient-to-r from-blue-400 to-purple-400 rounded-full blur-3xl"></div>
+    <section className="relative bg-black h-[780px] flex items-center justify-center overflow-hidden">
+      <div className="w-full h-full  absolute inset-0">
+        <div className="absolute bottom-0 left-1/2 transform -translate-x-1/2">
+          <HeroGlow />
+        </div>
+        <div className="absolute bottom-0 top-0 left-1/2 transform -translate-x-1/2 min-w-[1800px] w-full h-full mx-auto  md:flex items-center justify-between gap-60 hidden">
+          <div className="transform 4xl:translate-y-[0%] 3xl:translate-y-[20%] translate-y-[36%] w-1/2 h-full">
+            <Image
+              src="/assets/hero-left-shape.png"
+              alt=""
+              width={1000}
+              height={1000}
+              className="w-full object-fill"
+            />
+          </div>
+          <div className="transform 4xl:translate-y-[0%] 3xl:translate-y-[20%] translate-y-[36%] w-1/2 h-full">
+            <Image
+              src="/assets/hero-right-shape.png"
+              alt=""
+              width={1000}
+              height={1000}
+              className="w-full"
+            />
+          </div>
+        </div>
       </div>
-
-      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <div className="relative z-10 max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 text-center">
         <div className="bg-[#191c49] w-[142px] h-[40px] flex items-center justify-center rounded-lg mx-auto">
           <span className="text-white text-[14px] font-normal">
             Elite Mind Funding
@@ -43,22 +64,16 @@ export default function HeroSection() {
 
         {/* CTA Buttons */}
         <div className="flex flex-col sm:flex-row gap-4 justify-center mb-12">
-          <Link
-            href="/get-funded"
-            className="bg-transparent border-2 border-[#f6a91b] text-white hover:bg-[#f6a91b] hover:text-black px-4 py-4 rounded-lg font-normal text-[16px] transition-all duration-300  w-[160px] h-[50px] flex items-center justify-center"
-          >
+          <Button href="/get-funded" variant="outline">
             Get Funded Now
-          </Link>
-          <Link
-            href="/community"
-            className="bg-transparent border-2 border-[#71706f] text-[#71706f] hover:bg-[#71706f] hover:text-black px-4 py-4 rounded-lg font-normal text-[16px] transition-all duration-300 w-[160px] h-[50px] flex items-center justify-center"
-          >
+          </Button>
+          <Button href="/community" variant="community">
             Join Community
-          </Link>
+          </Button>
         </div>
 
         {/* Key Benefits */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12 max-w-4xl mx-auto">
+        <div className="flex flex-col md:flex-row justify-center items-center space-y-4 md:space-y-0 md:space-x-4 mb-12">
           <div className="flex items-center justify-center space-x-3 gradient_bg_dark h-[50px] w-[200px] rounded-xl ">
             <CheckIcon width={16} height={16} strokeColor="white" />
             <span className="text-white text-[14px] font-medium">
@@ -103,30 +118,55 @@ export default function HeroSection() {
             <span className="text-gray-300">Listed On Propfirmmatch.com</span>
           </div>
         </div>
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-8 gradient_bg_dark rounded-2xl p-8 border border-white/50">
-          {/* Total Accounts */}
-          <div className="text-center">
-            <div className="">
+
+        <div className="flex flex-col md:flex-row items-start p-6 md:p-[24px_44px] max-w-[1060px] w-full md:h-[135px] mx-auto mt-8 bg-gradient-to-b from-[rgba(8,8,9,0)] to-[rgba(246,169,28,0.1)] border-[0.5px] border-white/10 rounded-[16px] outline outline-[rgba(246,169,28,0.2)] outline-offset-12">
+          {/* Mobile Layout (flex-col) and Desktop Layout (flex-row) */}
+          <div className="flex flex-col space-y-8 md:hidden w-full">
+            {/* First Row: Total Accounts and Active Traders */}
+            <div className="flex justify-between border-b border-white/10 pb-4">
+              {/* Total Accounts */}
+              <div className="text-center flex-1">
+                <div className="text-3xl font-bold text-white mb-1">100K+</div>
+                <div className="text-gray-300 text-sm">Total Accounts</div>
+              </div>
+
+              {/* Divider */}
+              <div className="w-px bg-white/10 mx-2"></div>
+
+              {/* Active Traders */}
+              <div className="text-center flex-1">
+                <div className="text-3xl font-bold text-white mb-1">50K+</div>
+                <div className="text-gray-300 text-sm">Active Traders</div>
+              </div>
+            </div>
+
+            {/* Second Row: Total Payouts */}
+            <div className="text-center">
+              <div className="text-4xl font-bold text-white mb-1">$5M+</div>
+              <div className="text-gray-300 text-sm">Total Payouts</div>
+            </div>
+          </div>
+
+          {/* Desktop Layout (Original) */}
+          <div className="hidden md:flex md:flex-row w-full">
+            {/* Total Accounts */}
+            <div className="text-center flex-1">
               <div className="text-4xl md:text-5xl font-bold text-white mb-2">
                 100K+
               </div>
               <div className="text-gray-300 text-lg">Total Accounts</div>
             </div>
-          </div>
 
-          {/* Active Traders */}
-          <div className="text-center">
-            <div className="">
+            {/* Active Traders */}
+            <div className="text-center flex-1">
               <div className="text-4xl md:text-5xl font-bold text-white mb-2">
                 50K+
               </div>
               <div className="text-gray-300 text-lg">Active Traders</div>
             </div>
-          </div>
 
-          {/* Total Payouts */}
-          <div className="text-center">
-            <div className="">
+            {/* Total Payouts */}
+            <div className="text-center flex-1">
               <div className="text-4xl md:text-5xl font-bold text-white mb-2">
                 $5M+
               </div>

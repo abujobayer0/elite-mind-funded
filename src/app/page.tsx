@@ -1,4 +1,15 @@
-import { Header, HeroSection, Footer } from "@/components";
+import {
+  Header,
+  HeroSection,
+  EvaluationSection,
+  FundingJourneySection,
+  WhyUsSection,
+  DashboardSection,
+  ProfitCalculatorSection,
+  PayoutsSection,
+  ComparisonSection,
+  Footer,
+} from "@/components";
 
 export default function Home() {
   return (
@@ -6,6 +17,13 @@ export default function Home() {
       <Header />
       <main>
         <HeroSection />
+        <EvaluationSection />
+        <FundingJourneySection />
+        <WhyUsSection />
+        <DashboardSection />
+        <ProfitCalculatorSection />
+        <PayoutsSection />
+        <ComparisonSection />
       </main>
       <Footer />
     </div>

@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import Image from "next/image";
-import { GridIcon } from "@/components";
+import { Button, GridIcon } from "@/components";
 
 export default function Header() {
   return (
@@ -19,7 +19,7 @@ export default function Header() {
           </div>
 
           {/* Navigation Links */}
-          <nav className="hidden md:flex items-center space-x-8">
+          <nav className="hidden md:flex items-center space-x-4">
             <Link
               href="/"
               className="text-[#f6a91b] bg-[#1e1b15] px-4 py-2 rounded-lg font-medium"
@@ -28,25 +28,25 @@ export default function Header() {
             </Link>
             <Link
               href="/pricing"
-              className="text-[#a2a09d] hover:text-white transition-colors"
+              className="text-[#a2a09d] hover:text-white px-4 py-2 transition-colors"
             >
               Pricing
             </Link>
             <Link
               href="/affiliate"
-              className="text-[#a2a09d] hover:text-white transition-colors"
+              className="text-[#a2a09d] hover:text-white px-4 py-2 transition-colors"
             >
               Affiliate Program
             </Link>
             <Link
               href="/faqs"
-              className="text-[#a2a09d] hover:text-white transition-colors"
+              className="text-[#a2a09d] hover:text-white px-4 py-2 transition-colors"
             >
               FAQs
             </Link>
             <Link
               href="/contact"
-              className="text-[#a2a09d] hover:text-white transition-colors"
+              className="text-[#a2a09d] hover:text-white px-4 py-2 transition-colors"
             >
               Contact Us
             </Link>
@@ -54,19 +54,23 @@ export default function Header() {
 
           {/* Action Buttons */}
           <div className="flex items-center space-x-4">
-            <Link
+            <Button
               href="/login"
-              className="text-white hover:text-white/90 transition-colors text-base "
+              variant="ghost"
+              size="sm"
+              className="w-auto h-auto px-0 py-0"
             >
               Login
-            </Link>
-            <Link
+            </Button>
+            <Button
               href="/dashboard"
-              className="bg-[#f6a91b] hover:bg-[#f6a91b]/90 text-[#191c49] text-base rounded-lg font-normal transition-colors flex items-center space-x-2 w-[132px] h-[46px] justify-center"
+              variant="primary"
+              size="sm"
+              className="w-[132px] h-[46px]"
             >
               <GridIcon width={16} height={16} fillColor="#191c49" />
               <span>Client Area</span>
-            </Link>
+            </Button>
           </div>
         </div>
       </div>

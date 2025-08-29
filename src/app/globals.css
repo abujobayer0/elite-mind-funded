@@ -13,6 +13,11 @@
   --primary-color: #f6a91b;
 }
 
+@theme {
+  --breakpoint-3xl: 1840px;
+  --breakpoint-4xl: 2040px;
+}
+
 @media (prefers-color-scheme: dark) {
   :root {
     --background: #0a0a0a;
