@@ -33,3 +33,7 @@ body {
     rgba(7, 7, 8, 0) 80%
   );
 }
+
+.bg-gradient-radial {
+  background-image: radial-gradient(circle, var(--tw-gradient-stops));
+}
