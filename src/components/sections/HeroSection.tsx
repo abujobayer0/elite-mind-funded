@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { Button, CheckIcon, StarIcon } from "@/components";
+import { Button, Badge, CheckIcon, StarIcon } from "@/components";
 import HeroGlow from "../icons/HeroGlow";
 import Image from "next/image";
 
@@ -13,7 +13,7 @@ export default function HeroSection() {
           <HeroGlow />
         </div>
         <div className="absolute bottom-0 top-0 left-1/2 transform -translate-x-1/2 min-w-[1800px] w-full h-full mx-auto  md:flex items-center justify-between gap-60 hidden">
-          <div className="transform 4xl:translate-y-[0%] 3xl:translate-y-[20%] translate-y-[36%] w-1/2 h-full">
+          <div className="transform 4xl:translate-y-[0%] 3xl:translate-y-[20%] translate-y-[41.5%] w-1/2 h-full">
             <Image
               src="/assets/hero-left-shape.png"
               alt=""
@@ -22,7 +22,7 @@ export default function HeroSection() {
               className="w-full object-fill"
             />
           </div>
-          <div className="transform 4xl:translate-y-[0%] 3xl:translate-y-[20%] translate-y-[36%] w-1/2 h-full">
+          <div className="transform 4xl:translate-y-[0%] 3xl:translate-y-[20%] translate-y-[41.5%] w-1/2 h-full">
             <Image
               src="/assets/hero-right-shape.png"
               alt=""
@@ -34,11 +34,7 @@ export default function HeroSection() {
         </div>
       </div>
       <div className="relative z-10 max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 text-center">
-        <div className="bg-[#191c49] w-[142px] h-[40px] flex items-center justify-center rounded-lg mx-auto">
-          <span className="text-white text-[14px] font-normal">
-            Elite Mind Funding
-          </span>
-        </div>
+        <Badge>Elite Mind Funding</Badge>
 
         {/* Main Headline */}
         <div className="mb-4 mt-4">
@@ -63,7 +59,7 @@ export default function HeroSection() {
         </p>
 
         {/* CTA Buttons */}
-        <div className="flex flex-col sm:flex-row gap-4 justify-center mb-12">
+        <div className="flex flex-col sm:flex-row gap-4 justify-center mb-6">
           <Button href="/get-funded" variant="outline">
             Get Funded Now
           </Button>
@@ -73,7 +69,7 @@ export default function HeroSection() {
         </div>
 
         {/* Key Benefits */}
-        <div className="flex flex-col md:flex-row justify-center items-center space-y-4 md:space-y-0 md:space-x-4 mb-12">
+        <div className="flex flex-col md:flex-row justify-center items-center space-y-4 md:space-y-0 md:space-x-4 mb-4">
           <div className="flex items-center justify-center space-x-3 gradient_bg_dark h-[50px] w-[200px] rounded-xl ">
             <CheckIcon width={16} height={16} strokeColor="white" />
             <span className="text-white text-[14px] font-medium">
@@ -95,27 +91,35 @@ export default function HeroSection() {
         </div>
 
         {/* Trust Indicators */}
-        <div className="flex flex-col sm:flex-row items-center justify-center space-y-4 sm:space-y-0 sm:space-x-8">
+        <div className="flex flex-col sm:flex-row items-center justify-center space-y-4 sm:space-y-0 sm:space-x-8 mb-18">
           <div className="flex items-center space-x-2">
+            <span className="text-white text-sm font-medium">Excellent</span>
             <div className="flex space-x-1">
               {[...Array(5)].map((_, i) => (
-                <StarIcon key={i} width={20} height={20} fillColor="#10B981" />
+                <div
+                  key={i}
+                  className="w-6 h-6 flex items-center justify-center bg-[#10B981]"
+                >
+                  <StarIcon width={20} height={20} fillColor="#fff" />
+                </div>
               ))}
             </div>
-            <span className="text-white font-medium">Excellent</span>
-            <span className="text-gray-400">Trustpilot</span>
+            <StarIcon width={20} height={20} fillColor="#10B981" />
+            <span className="text-white text-xs font-bold">Trustpilot</span>
           </div>
+          <div className="hidden sm:block w-[2px] h-7 bg-white/20"></div>
           <div className="flex items-center space-x-2">
-            <div className="w-6 h-6 bg-purple-500 rounded flex items-center justify-center">
-              <svg
-                className="w-4 h-4 text-white"
-                fill="currentColor"
-                viewBox="0 0 20 20"
-              >
-                <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
-              </svg>
-            </div>
-            <span className="text-gray-300">Listed On Propfirmmatch.com</span>
+            <p className="text-gray-300 text-sm flex gap-1 items-center">
+              Listed On{" "}
+              <span className="w-6 h-6 flex items-center justify-center">
+                <img
+                  src="/assets/icon-1.png"
+                  alt=""
+                  className="w-full h-full object-contain"
+                />
+              </span>{" "}
+              Propfirmmatch.com
+            </p>
           </div>
         </div>
 

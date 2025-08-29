@@ -1,9 +1,7 @@
 "use client";
 
 import { useMemo, useState } from "react";
-import RangeSlider from "@/components/ui/RangeSlider";
-import MetricBox from "@/components/ui/MetricBox";
-import Button from "@/components/ui/Button";
+import { Badge, RangeSlider, MetricBox, Button } from "@/components";
 
 export default function ProfitCalculatorSection() {
   const [accountSize, setAccountSize] = useState(100);
@@ -32,9 +30,9 @@ export default function ProfitCalculatorSection() {
     <section className="relative bg-black py-20">
       <div className="max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-10">
-          <div className="mx-auto w-[128px] h-[30px] text-[12px] flex items-center justify-center rounded-lg bg-[#1a1a1a] text-white/80 border border-white/10">
+          <Badge className="w-[128px] h-[30px] bg-[#1a1a1a] border border-white/10">
             Profit Calculator
-          </div>
+          </Badge>
           <h2 className="text-white text-3xl md:text-5xl font-bold mt-4">
             Calculate Your{" "}
             <span className="text-[#f6a91b]">Potential Profits</span> With EMF

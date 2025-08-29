@@ -1,6 +1,6 @@
 "use client";
 
-import ComparisonTable from "@/components/ui/ComparisonTable";
+import { Badge, ComparisonTable } from "@/components";
 import CheckIcon from "../ui/CheckIcon";
 
 export default function ComparisonSection() {
@@ -45,9 +45,9 @@ export default function ComparisonSection() {
     <section className="relative bg-black py-20">
       <div className="max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-10">
-          <div className="mx-auto w-[140px] h-[30px] text-[12px] flex items-center justify-center rounded-lg bg-[#1a1a1a] text-white/80 border border-white/10">
+          <Badge className="w-[140px] h-[30px] bg-[#1a1a1a] border border-white/10">
             Comparison Table
-          </div>
+          </Badge>
           <h2 className="text-white text-3xl md:text-5xl font-bold mt-4">
             Why <span className="text-[#f6a91b]">Elite Mind Funding</span>?
           </h2>

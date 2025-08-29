@@ -11,9 +11,18 @@ export { default as DashboardSection } from "./sections/DashboardSection";
 export { default as ProfitCalculatorSection } from "./sections/ProfitCalculatorSection";
 export { default as PayoutsSection } from "./sections/PayoutsSection";
 export { default as ComparisonSection } from "./sections/ComparisonSection";
+export { default as AffiliateProgramSection } from "./sections/AffiliateProgramSection";
+export { default as AffiliateTiersSection } from "./sections/AffiliateTiersSection";
+export { default as AffiliateBonusSection } from "./sections/AffiliateBonusSection";
+export { default as AffiliateHowItWorksSection } from "./sections/AffiliateHowItWorksSection";
+export { default as PricingHeroSection } from "./sections/PricingHeroSection";
+export { default as FeaturesSection } from "./sections/FeaturesSection";
+export { default as PricingComparisonSection } from "./sections/PricingComparisonSection";
+export { default as ContactSection } from "./sections/ContactSection";
 
 // UI Components
 export { default as Button } from "./ui/Button";
+export { default as Badge } from "./ui/Badge";
 export { default as CheckIcon } from "./ui/CheckIcon";
 export { default as GridIcon } from "./ui/GridIcon";
 export { default as StarIcon } from "./ui/StarIcon";
@@ -28,3 +37,7 @@ export { default as RangeSlider } from "./ui/RangeSlider";
 export { default as MetricBox } from "./ui/MetricBox";
 export { default as PayoutCard } from "./ui/PayoutCard";
 export { default as ComparisonTable } from "./ui/ComparisonTable";
+export { default as AffiliateFeatureCard } from "./ui/AffiliateFeatureCard";
+export { default as TierCard } from "./ui/TierCard";
+export { default as BonusCard } from "./ui/BonusCard";
+export { default as TimelineStep } from "./ui/TimelineStep";

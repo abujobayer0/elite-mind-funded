@@ -11,6 +11,7 @@ interface ButtonProps {
   className?: string;
   disabled?: boolean;
   type?: "button" | "submit" | "reset";
+  icon?: React.ReactNode;
 }
 
 export default function Button({
@@ -22,10 +23,11 @@ export default function Button({
   className,
   disabled = false,
   type = "button",
+  icon,
   ...props
 }: ButtonProps) {
   const baseClasses =
-    "inline-flex items-center justify-center font-normal transition-all duration-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-offset-2 disabled:opacity-50 disabled:cursor-not-allowed";
+    "inline-flex items-center justify-center font-normal transition-all duration-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-offset-2 disabled:opacity-50 disabled:cursor-not-allowed cursor-pointer";
 
   const variants = {
     primary: "bg-[#f6a91b] text-black hover:bg-[#e59a1a] focus:ring-[#f6a91b]",
@@ -34,7 +36,7 @@ export default function Button({
     outline:
       "bg-transparent border-2 border-[#f6a91b] text-white hover:bg-[#f6a91b] hover:text-black focus:ring-[#f6a91b]",
     community:
-      "bg-transparent border-2 border-[#71706f] text-[#71706f] hover:bg-[#71706f] hover:text-black focus:ring-[#71706f]",
+      "bg-transparent border-2 border-[#71706f] text-[#71706f] hover:bg-[#71706f] hover:text-white focus:ring-[#71706f]",
     ghost: "bg-transparent text-white hover:bg-white/10 focus:ring-white/20",
   };
 
@@ -62,6 +64,7 @@ export default function Button({
       disabled={disabled}
       {...props}
     >
+      {icon && <span className="mr-2">{icon}</span>}
       {children}
     </button>
   );

@@ -2,49 +2,88 @@ import React from "react";
 
 export default function PaymentOptions() {
   const paymentMethods = [
-    { name: "VISA", color: "text-blue-600" },
-    { name: "G PAY", color: "text-blue-600" },
-    { name: "APPLE", color: "text-blue-600" },
-    { name: "AMEX", color: "text-blue-600" },
-    { name: "PAYPAL", color: "text-blue-600" },
-    { name: "MC", color: "text-blue-600" },
+    {
+      name: "VISA",
+      icon: "/assets/payment-icons/visa.png",
+      alt: "Visa",
+    },
+    {
+      name: "Google Pay",
+      icon: "/assets/payment-icons/logos_google-pay.png",
+      alt: "Google Pay",
+    },
+    {
+      name: "Apple Pay",
+      icon: "/assets/payment-icons/apple.png",
+      alt: "Apple Pay",
+    },
+    {
+      name: "American Express",
+      icon: "/assets/payment-icons/amex.png",
+      alt: "American Express",
+    },
+    {
+      name: "PayPal",
+      icon: "/assets/payment-icons/paypal.png",
+      alt: "PayPal",
+    },
+    {
+      name: "Union Pay",
+      icon: "/assets/payment-icons/union.png",
+      alt: "Union Pay",
+    },
   ];
 
   const cryptoMethods = [
-    { symbol: "₿", color: "bg-orange-500" },
-    { symbol: "Ξ", color: "bg-blue-500" },
-    { symbol: "₿", color: "bg-purple-500" },
+    {
+      symbol: "₿",
+      icon: "/assets/payment-icons/electric_currency.png",
+      alt: "Crypto",
+    },
   ];
 
   return (
-    <div className="text-center">
-      <h3 className="text-white text-lg font-semibold mb-4">
-        Payment Options:
-      </h3>
-      <div className="flex flex-wrap justify-center items-center gap-4">
-        {/* Payment Icons */}
-        {paymentMethods.map((method, index) => (
-          <div
-            key={index}
-            className="w-12 h-8 bg-white rounded flex items-center justify-center"
-          >
-            <span className={`${method.color} font-bold text-xs`}>
-              {method.name}
-            </span>
-          </div>
-        ))}
+    <div className="flex justify-center">
+      <div
+        className="text-center px-12 py-4 rounded-xl flex items-center gap-4"
+        style={{
+          background:
+            "linear-gradient(180deg, rgba(8, 8, 9, 0) 0%, rgba(246, 169, 28, 0.1) 100%)",
+          border: "0.5px solid rgba(255, 255, 255, 0.1)",
+          backdropFilter: "blur(25px)",
+          borderRadius: "16px",
+        }}
+      >
+        <h3 className="text-white text-lg font-semibold">Payment Options:</h3>
+        <div className="flex flex-wrap justify-center items-center gap-2">
+          {/* Payment Icons */}
+          {paymentMethods.map((method, index) => (
+            <div
+              key={index}
+              className="w-[84px] h-[54px] bg-white/[0.06] rounded-[10px] flex items-center justify-center p-3"
+            >
+              <img
+                src={method.icon}
+                alt={method.alt}
+                className="max-w-full max-h-full object-contain"
+              />
+            </div>
+          ))}
 
-        {/* Crypto Icons */}
-        {cryptoMethods.map((crypto, index) => (
-          <div
-            key={index}
-            className={`w-8 h-8 ${crypto.color} rounded-full flex items-center justify-center`}
-          >
-            <span className="text-white font-bold text-xs">
-              {crypto.symbol}
-            </span>
-          </div>
-        ))}
+          {/* Crypto Icons */}
+          {cryptoMethods.map((crypto, index) => (
+            <div
+              key={index}
+              className="w-[206px] h-[54px] bg-white/[0.06] rounded-[10px] flex items-center justify-center p-3"
+            >
+              <img
+                src={crypto.icon}
+                alt={crypto.alt}
+                className="max-w-full max-h-full object-contain"
+              />
+            </div>
+          ))}
+        </div>
       </div>
     </div>
   );

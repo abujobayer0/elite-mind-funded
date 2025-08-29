@@ -2,9 +2,18 @@
 
 import Link from "next/link";
 import Image from "next/image";
+import { usePathname } from "next/navigation";
 import { Button, GridIcon } from "@/components";
 
 export default function Header() {
+  const pathname = usePathname();
+
+  const isActive = (path: string) => {
+    if (path === "/" && pathname === "/") return true;
+    if (path !== "/" && pathname.startsWith(path)) return true;
+    return false;
+  };
+
   return (
     <header className="bg-black/90 backdrop-blur-sm h-[114px]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-full">
@@ -22,31 +31,51 @@ export default function Header() {
           <nav className="hidden md:flex items-center space-x-4">
             <Link
               href="/"
-              className="text-[#f6a91b] bg-[#1e1b15] px-4 py-2 rounded-lg font-medium"
+              className={`px-4 py-2 rounded-lg font-medium transition-colors ${
+                isActive("/")
+                  ? "text-[#f6a91b] bg-[#1e1b15]"
+                  : "text-[#a2a09d] hover:text-white"
+              }`}
             >
               Home
             </Link>
             <Link
               href="/pricing"
-              className="text-[#a2a09d] hover:text-white px-4 py-2 transition-colors"
+              className={`px-4 py-2 rounded-lg transition-colors ${
+                isActive("/pricing")
+                  ? "text-[#f6a91b] bg-[#1e1b15]"
+                  : "text-[#a2a09d] hover:text-white"
+              }`}
             >
               Pricing
             </Link>
             <Link
               href="/affiliate"
-              className="text-[#a2a09d] hover:text-white px-4 py-2 transition-colors"
+              className={`px-4 py-2 rounded-lg transition-colors ${
+                isActive("/affiliate")
+                  ? "text-[#f6a91b] bg-[#1e1b15]"
+                  : "text-[#a2a09d] hover:text-white"
+              }`}
             >
               Affiliate Program
             </Link>
             <Link
               href="/faqs"
-              className="text-[#a2a09d] hover:text-white px-4 py-2 transition-colors"
+              className={`px-4 py-2 rounded-lg transition-colors ${
+                isActive("/faqs")
+                  ? "text-[#f6a91b] bg-[#1e1b15]"
+                  : "text-[#a2a09d] hover:text-white"
+              }`}
             >
               FAQs
             </Link>
             <Link
               href="/contact"
-              className="text-[#a2a09d] hover:text-white px-4 py-2 transition-colors"
+              className={`px-4 py-2 rounded-lg transition-colors ${
+                isActive("/contact")
+                  ? "text-[#f6a91b] bg-[#1e1b15]"
+                  : "text-[#a2a09d] hover:text-white"
+              }`}
             >
               Contact Us
             </Link>

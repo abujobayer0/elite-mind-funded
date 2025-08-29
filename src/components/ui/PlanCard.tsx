@@ -3,6 +3,7 @@ import Button from "./Button";
 import { CheckIcon } from "@/components";
 
 interface PlanCardProps {
+  index: number;
   title: string;
   subtitle: string;
   highlighted?: boolean;
@@ -11,6 +12,7 @@ interface PlanCardProps {
 }
 
 export default function PlanCard({
+  index,
   title,
   subtitle,
   highlighted = false,
@@ -20,11 +22,23 @@ export default function PlanCard({
   return (
     <div
       className={
-        "relative rounded-xl border p-6 md:p-8 transition-all duration-300 " +
+        "relative border p-6 md:p-8 transition-all duration-300 " +
         (highlighted
-          ? "border-[#f6a91b]/30 bg-gradient-to-b from-[#1a1a1a] to-black shadow-[0_0_40px_rgba(246,169,27,0.08)]"
-          : "border-white/10 bg-[#0f0f0f]")
+          ? "border-[#f6a91b]/30 shadow-[0_0_40px_rgba(246,169,27,0.08)] rounded-xl"
+          : "border-white/10 bg-[#0f0f0f] ")
       }
+      style={{
+        background:
+          "linear-gradient(161.16deg, rgba(246, 169, 28, 0.1) 0.49%, rgba(8, 8, 9, 0) 99.51%)",
+        borderRadius:
+          index === 0
+            ? "14px 0px 0px 14px"
+            : index === 2
+            ? "0px 14px 14px 0px"
+            : highlighted
+            ? "14px"
+            : "0px",
+      }}
     >
       <div className="flex items-start gap-3 mb-4">
         <div className="w-8 h-8 rounded-lg bg-[#1f1808] ring-1 ring-[#f6a91b]/30 flex items-center justify-center">
@@ -51,7 +65,7 @@ export default function PlanCard({
         <Button
           variant="outline"
           size="md"
-          className="w-full"
+          className="w-full border-white/60 border-[0.5px]"
           onClick={onStart}
         >
           Start Challenge

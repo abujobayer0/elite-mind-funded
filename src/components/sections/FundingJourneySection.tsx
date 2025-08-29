@@ -1,7 +1,6 @@
 "use client";
 
-import PlanCard from "@/components/ui/PlanCard";
-import StatsBar from "@/components/ui/StatsBar";
+import { Badge, PlanCard, StatsBar } from "@/components";
 
 export default function FundingJourneySection() {
   const cards = [
@@ -45,32 +44,45 @@ export default function FundingJourneySection() {
   ];
 
   return (
-    <section className="relative bg-black py-20">
+    <section
+      className="relative bg-black py-20"
+      style={{
+        background:
+          "linear-gradient(180deg, rgba(246, 169, 28, 0.1) 0%, rgba(8, 8, 9, 0) 100.01%)",
+        borderTop: "1px solid",
+        borderImage: "radial-gradient(circle, #f6a91b 30%, transparent 100%) 1",
+      }}
+    >
       <div className="max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-10">
-          <div className="mx-auto w-[170px] h-[34px] text-[12px] flex items-center justify-center rounded-lg bg-[#1a1a1a] text-white/80 border border-white/10">
-            Choose Your Account
-          </div>
-          <h2 className="text-white text-3xl md:text-5xl font-bold mt-4">
+          <Badge>Choose Your Account</Badge>
+          <h2 className="text-white text-3xl md:text-5xl font-bold mt-2">
             Your <span className="text-[#f6a91b]">Funding Journey</span> Starts
             Here
           </h2>
-          <p className="text-gray-400 mt-3 max-w-2xl mx-auto">
+          <p className="text-white/95 mt-3 max-w-3xl mx-auto text-lg font-normal">
             Choose The Account Plan That Best Fits Your Trading Style, Goals,
             And Personal Preferences.
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8">
-          {cards.map((c) => (
-            <PlanCard
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-4 my-22">
+          {cards.map((c, index) => (
+            <div
+              className={`${
+                index === 1 ? "transform md:scale-108 md:-my-4 z-10" : ""
+              }`}
               key={c.title}
-              title={c.title}
-              subtitle={c.subtitle}
-              highlighted={c.highlighted}
-              features={c.features}
-              onStart={() => console.log("Start Challenge", c.title)}
-            />
+            >
+              <PlanCard
+                index={index}
+                title={c.title}
+                subtitle={c.subtitle}
+                highlighted={c.highlighted}
+                features={c.features}
+                onStart={() => console.log("Start Challenge", c.title)}
+              />
+            </div>
           ))}
         </div>
 
