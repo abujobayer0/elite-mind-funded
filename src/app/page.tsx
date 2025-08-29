@@ -49,100 +49,6 @@ const Candlestick = ({
   );
 };
 
-const FloatingChartElements = () => {
-  return (
-    <>
-      {/* Left side candlesticks */}
-      <Candlestick
-        height={40}
-        isGreen={true}
-        delay={0.5}
-        x="left-20"
-        y="top-1/4"
-      />
-      <Candlestick
-        height={60}
-        isGreen={false}
-        delay={1}
-        x="left-32"
-        y="top-1/3"
-      />
-      <Candlestick
-        height={35}
-        isGreen={true}
-        delay={1.5}
-        x="left-16"
-        y="top-1/2"
-      />
-      <Candlestick
-        height={50}
-        isGreen={true}
-        delay={2}
-        x="left-28"
-        y="top-3/5"
-      />
-
-      {/* Right side candlesticks */}
-      <Candlestick
-        height={45}
-        isGreen={false}
-        delay={0.8}
-        x="right-20"
-        y="top-1/4"
-      />
-      <Candlestick
-        height={55}
-        isGreen={true}
-        delay={1.3}
-        x="right-32"
-        y="top-1/3"
-      />
-      <Candlestick
-        height={40}
-        isGreen={false}
-        delay={1.8}
-        x="right-16"
-        y="top-1/2"
-      />
-      <Candlestick
-        height={65}
-        isGreen={true}
-        delay={2.3}
-        x="right-28"
-        y="top-3/5"
-      />
-
-      {/* Floating price indicators */}
-      <motion.div
-        className="absolute top-1/4 left-1/4 text-green-400 text-sm font-mono opacity-40"
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 0.4, y: 0 }}
-        transition={{ duration: 1, delay: 2.5 }}
-      >
-        +2.45%
-      </motion.div>
-
-      <motion.div
-        className="absolute top-1/3 right-1/4 text-red-400 text-sm font-mono opacity-40"
-        initial={{ opacity: 0, y: -20 }}
-        animate={{ opacity: 0.4, y: 0 }}
-        transition={{ duration: 1, delay: 3 }}
-      >
-        -1.23%
-      </motion.div>
-
-      <motion.div
-        className="absolute bottom-1/4 left-1/3 text-[#f6a91b] text-sm font-mono opacity-40"
-        initial={{ opacity: 0, x: -20 }}
-        animate={{ opacity: 0.4, x: 0 }}
-        transition={{ duration: 1, delay: 3.5 }}
-      >
-        $50,000
-      </motion.div>
-    </>
-  );
-};
-
 const Page = () => {
   return (
     <div className="min-h-screen relative overflow-hidden">
@@ -156,27 +62,6 @@ const Page = () => {
 
       {/* Dark Overlay to make image darker */}
       <div className="absolute inset-0 bg-black bg-opacity-80" />
-
-      {/* Spotlight from top-right corner */}
-      <motion.div
-        className="absolute -top-40 -right-40 w-96 h-96 pointer-events-none"
-        initial={{ opacity: 0, scale: 0 }}
-        animate={{ opacity: 1, scale: 1 }}
-        transition={{ duration: 2, ease: "easeOut" }}
-      >
-        <motion.div
-          className="w-full h-full bg-gradient-radial from-white/20 via-white/10 to-transparent rounded-full"
-          animate={{
-            scale: [1, 1.1, 1],
-            opacity: [0.3, 0.5, 0.3],
-          }}
-          transition={{
-            duration: 4,
-            repeat: Number.POSITIVE_INFINITY,
-            ease: "easeInOut",
-          }}
-        />
-      </motion.div>
 
       {/* Additional subtle spotlight glow */}
       <motion.div
@@ -257,10 +142,6 @@ const Page = () => {
         />
       </div>
 
-      <div className="absolute inset-0 z-5 hidden md:block">
-        <FloatingChartElements />
-      </div>
-
       {/* Main Content */}
       <div className="relative z-10 flex flex-col items-center justify-center min-h-screen px-4 text-center">
         {/* Logo/Brand */}
@@ -312,9 +193,37 @@ const Page = () => {
             transition={{ duration: 0.8, delay: 0.6, ease: "easeOut" }}
           >
             We&apos;re launching Elite Mind Funding - the ultimate platform for
-            funded trading accounts. Get ready to trade with up to $200K in
-            capital and keep up to 100% of your profits.
+            funded trading accounts.
+            <motion.span
+              className="text-[#f6a91b] font-semibold"
+              animate={{ opacity: [1, 0.7, 1] }}
+              transition={{ duration: 2, repeat: Number.POSITIVE_INFINITY }}
+            >
+              {" "}
+              Stay Tuned.
+            </motion.span>
           </motion.p>
+
+          {/* Loading Bar */}
+          <motion.div
+            className="mt-8 max-w-lg mx-auto"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 1, ease: "easeOut" }}
+          >
+            <div className="text-center mb-6">
+              <span className="text-[#f6a91b] text-xl font-semibold">
+                Loading...
+              </span>
+            </div>
+
+            {/* Progress bar container - rectangular like in image */}
+            <div className="w-full max-w-md mx-auto">
+              <div className="h-6 bg-transparent border-2 border-[#f6a91b] overflow-hidden relative p-0.5">
+                <div className="h-full bg-[#f6a91b] w-1/2" />
+              </div>
+            </div>
+          </motion.div>
         </motion.div>
       </div>
     </div>
