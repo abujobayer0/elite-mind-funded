@@ -13,7 +13,7 @@ export default function HeroSection() {
           <HeroGlow />
         </div>
         <div className="absolute bottom-0 top-0 left-1/2 transform -translate-x-1/2 min-w-[1800px] w-full h-full mx-auto  md:flex items-center justify-between gap-60 hidden">
-          <div className="transform 4xl:translate-y-[0%] 3xl:translate-y-[20%] translate-y-[41.5%] w-1/2 h-full">
+          <div className="transform 4xl:translate-y-[27%] 3xl:translate-y-[37%] translate-y-[41.5%] w-1/2 h-full">
             <Image
               src="/assets/hero-left-shape.png"
               alt=""
@@ -22,7 +22,7 @@ export default function HeroSection() {
               className="w-full object-fill"
             />
           </div>
-          <div className="transform 4xl:translate-y-[0%] 3xl:translate-y-[20%] translate-y-[41.5%] w-1/2 h-full">
+          <div className="transform 4xl:translate-y-[27%] 3xl:translate-y-[37%] translate-y-[41.5%] w-1/2 h-full">
             <Image
               src="/assets/hero-right-shape.png"
               alt=""
