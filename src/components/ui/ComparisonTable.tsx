@@ -1,5 +1,4 @@
 import React from "react";
-import { CheckIcon } from "@/components";
 
 interface ComparisonRow {
   parameter: string;

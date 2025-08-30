@@ -1,9 +1,10 @@
 "use client";
 
-import Link from "next/link";
-import { Button, Badge, CheckIcon, StarIcon } from "@/components";
+import { Button, Badge } from "@/components";
 import HeroGlow from "../icons/HeroGlow";
 import Image from "next/image";
+import CheckIcon from "../ui/CheckIcon";
+import StarIcon from "../icons/StarIcon";
 
 export default function HeroSection() {
   return (

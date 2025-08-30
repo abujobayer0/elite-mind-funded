@@ -23,9 +23,6 @@ export { default as ContactSection } from "./sections/ContactSection";
 // UI Components
 export { default as Button } from "./ui/Button";
 export { default as Badge } from "./ui/Badge";
-export { default as CheckIcon } from "./ui/CheckIcon";
-export { default as GridIcon } from "./ui/GridIcon";
-export { default as StarIcon } from "./ui/StarIcon";
 export { default as PhaseCard } from "./ui/PhaseCard";
 export { default as PaymentOptions } from "./ui/PaymentOptions";
 export { default as EvaluationModelSelector } from "./ui/EvaluationModelSelector";

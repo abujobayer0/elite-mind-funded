@@ -1,6 +1,6 @@
 import React from "react";
 import Button from "./Button";
-import { CheckIcon } from "@/components";
+import CheckIcon from "./CheckIcon";
 
 interface PlanCardProps {
   index: number;

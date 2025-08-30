@@ -3,7 +3,8 @@
 import Link from "next/link";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
-import { Button, GridIcon } from "@/components";
+import { Button } from "@/components";
+import GridIcon from "../ui/GridIcon";
 
 export default function Header() {
   const pathname = usePathname();

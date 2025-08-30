@@ -8,9 +8,8 @@ import {
   RangeSlider,
   PhaseCard,
   PaymentOptions,
-  CheckIcon,
-  StarIcon,
 } from "@/components";
+import StarIcon from "../icons/StarIcon";
 
 export default function PricingHeroSection() {
   const [selectedModel, setSelectedModel] = useState("instant");
