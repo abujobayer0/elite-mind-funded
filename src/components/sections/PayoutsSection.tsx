@@ -3,6 +3,8 @@
 import { useRef, useState, useEffect, useCallback } from "react";
 import { motion, useMotionValue, animate } from "motion/react";
 import { SectionHeader, PayoutCard } from "@/components";
+import ArrowLeft from "../icons/ArrowLeft";
+import ArrowRight from "../icons/ArrowRight";
 
 export default function PayoutsSection() {
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -194,10 +196,6 @@ export default function PayoutsSection() {
                   duration: 0.5,
                   ease: "easeOut",
                 }}
-                // whileHover={{
-                //   scale: 1.02,
-                //   transition: { duration: 0.2 },
-                // }}
               >
                 <PayoutCard imageSrc={item.imageSrc} amount={item.amount} />
               </motion.div>
@@ -205,8 +203,8 @@ export default function PayoutsSection() {
           </motion.div>
 
           {/* Gradient Overlays for Overflow Indication */}
-          {/* <div className="absolute left-0 top-0 bottom-0 w-8 bg-gradient-to-r from-black to-transparent pointer-events-none z-10" />
-          <div className="absolute right-0 top-0 bottom-0 w-8 bg-gradient-to-l from-black to-transparent pointer-events-none z-10" /> */}
+          <div className="absolute left-0 top-0 bottom-0 w-36 bg-gradient-to-r from-black/70 to-transparent pointer-events-none z-10" />
+          <div className="absolute right-0 top-0 bottom-0 w-36 bg-gradient-to-l from-black/70 to-transparent pointer-events-none z-10" />
         </div>
 
         {/* Indicators with Navigation */}
@@ -214,23 +212,14 @@ export default function PayoutsSection() {
           {/* Previous Button */}
           <motion.button
             onClick={prevSlide}
-            className="w-10 h-10 rounded-full border border-white/20 bg-black/60 backdrop-blur-sm text-white/80 hover:text-white hover:border-white/40 flex items-center justify-center"
+            className="w-[50px] h-[50px] bg-white/[0.02] border border-white/10 rounded-[9.61644px] text-white/80 hover:text-white flex items-center justify-center cursor-pointer"
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
             initial={{ opacity: 0, x: -20 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ delay: 0.3 }}
           >
-            <svg
-              width="14"
-              height="14"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              strokeWidth="2"
-            >
-              <path d="m15 18-6-6 6-6" />
-            </svg>
+            <ArrowLeft width={24} height={24} />
           </motion.button>
 
           {/* Indicators */}
@@ -241,7 +230,7 @@ export default function PayoutsSection() {
                 onClick={() => goToSlide(idx)}
                 className={`rounded-full transition-all duration-300 ${
                   idx === currentIndex
-                    ? "w-8 h-2 bg-[#f6a91b]"
+                    ? "w-8 h-2 bg-white"
                     : "w-2 h-2 bg-white/30 hover:bg-white/50"
                 }`}
                 whileHover={{ scale: 1.2 }}
@@ -256,23 +245,14 @@ export default function PayoutsSection() {
           {/* Next Button */}
           <motion.button
             onClick={nextSlide}
-            className="w-10 h-10 rounded-full border border-white/20 bg-black/60 backdrop-blur-sm text-white/80 hover:text-white hover:border-white/40 flex items-center justify-center"
+            className="w-[50px] h-[50px] bg-white/[0.02] border border-white/10 rounded-[9.61644px] text-white/80 hover:text-white flex items-center justify-center cursor-pointer"
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
             initial={{ opacity: 0, x: 20 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ delay: 0.3 }}
           >
-            <svg
-              width="14"
-              height="14"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              strokeWidth="2"
-            >
-              <path d="m9 18 6-6-6-6" />
-            </svg>
+            <ArrowRight width={24} height={24} />
           </motion.button>
         </div>
       </div>

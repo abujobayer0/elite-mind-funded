@@ -1,61 +1,115 @@
 import React from "react";
+import CheckIcon from "./CheckIcon";
 
-interface ComparisonRow {
-  parameter: string;
-  eliteMindFunding: string | React.ReactNode;
-  others: string | React.ReactNode;
-}
-
-interface ComparisonTableProps {
-  rows: ComparisonRow[];
-}
-
-export default function ComparisonTable({ rows }: ComparisonTableProps) {
+export default function ComparisonTable() {
+  const comparisonData = [
+    {
+      parameter: "Profit Target",
+      eliteMindFunding: "6-7%",
+      others: "8%",
+    },
+    {
+      parameter: "Daily Loss Limit",
+      eliteMindFunding: "3%",
+      others: "2%",
+    },
+    {
+      parameter: "Trailing Max Drawdown",
+      eliteMindFunding: "4-5%",
+      others: "3-4%",
+    },
+    {
+      parameter: "Activation Fee",
+      eliteMindFunding: "Starter Only",
+      others: (
+        <div className="w-6 h-6 rounded-full bg-[#2a2a2a] flex items-center justify-center">
+          <CheckIcon width={16} height={16} strokeColor="white" />
+        </div>
+      ),
+    },
+    {
+      parameter: "Scaling Rule",
+      eliteMindFunding: "Reset Fee",
+      others: "Same Fee As Initial Price",
+    },
+    {
+      parameter: "Minimum Trading Days",
+      eliteMindFunding: "3-4 Days",
+      others: "5 Days",
+    },
+  ];
   return (
-    <div className="rounded-2xl border border-[#f6a91b]/30 bg-[#0f0f0f] overflow-hidden">
-      <div className="grid grid-cols-3 divide-x divide-white/10">
-        {/* Header */}
-        <div className="p-6 md:p-8 text-center">
-          <div className="text-white/60 text-sm font-medium">Parameters</div>
-        </div>
-        <div className="p-6 md:p-8 text-center">
-          <div className="w-16 h-16 rounded-full bg-[#f6a91b] mx-auto mb-3 flex items-center justify-center">
-            <span className="text-[#191c49] font-bold text-xl">EM</span>
-          </div>
-          <div className="text-white font-semibold text-lg">
-            Elite Mind Funding
-          </div>
-        </div>
-        <div className="p-6 md:p-8 text-center">
-          <div className="text-white font-semibold text-lg">
-            When You Trade With Others
-          </div>
-        </div>
-      </div>
-
-      {/* Rows */}
-      {rows.map((row, idx) => (
-        <div
-          key={idx}
-          className="grid grid-cols-3 divide-x divide-white/10 border-t border-white/10"
-        >
-          <div className="p-6 md:p-8 flex items-center">
+    <div className="flex">
+      {/* Parameters Card */}
+      <div className="flex-1">
+        <div className="h-4"></div>
+        {comparisonData.map((row, idx) => (
+          <div
+            key={idx}
+            className={`p-6 md:p-8 flex items-center ${
+              idx !== comparisonData.length - 1
+                ? "border-b border-white/10"
+                : ""
+            }`}
+          >
             <span className="text-white/80 font-medium">{row.parameter}</span>
           </div>
-          <div className="p-6 md:p-8 flex items-center justify-center">
+        ))}
+      </div>
+
+      {/* Elite Mind Funding Card */}
+      <div className="flex-1 bg-black/20 rounded-2xl border relative border-[#f6a91b] outline outline-[#f6a91b]/70 outline-offset-[12px]">
+        <div className="w-[88px] h-[88px] rounded-full bg-[#f6a91b] mx-auto mb-3 flex items-center justify-center absolute -top-14 left-1/2 transform -translate-x-1/2">
+          <div className="w-[44px]">
+            <img
+              src="/assets/EMF-logo-black.png"
+              alt="EMF-logo-black"
+              className="w-full h-full object-contain"
+            />
+          </div>
+        </div>
+        <div className="h-4"></div>
+        {comparisonData.map((row, idx) => (
+          <div
+            key={idx}
+            className={`p-6 md:p-8 flex items-center justify-center ${
+              idx !== comparisonData.length - 1
+                ? "border-b border-white/10"
+                : ""
+            }`}
+          >
             <span className="text-white font-semibold">
               {row.eliteMindFunding}
             </span>
           </div>
-          <div className="p-6 md:p-8 flex items-center justify-center">
+        ))}
+      </div>
+
+      {/* Others Card */}
+      <div className="flex-1 relative">
+        <div className="mx-auto mb-3 flex items-center justify-center absolute -top-14 left-0 w-full">
+          <span className="text-white font-semibold text-center pt-6">
+            When you trade <br /> with Others
+          </span>
+        </div>
+        <div className="h-4"></div>
+        {comparisonData.map((row, idx) => (
+          <div
+            key={idx}
+            className={`p-6 md:p-8 flex items-center justify-center ${
+              idx !== comparisonData.length - 1
+                ? "border-b border-white/10"
+                : ""
+            }`}
+          >
             {typeof row.others === "string" ? (
               <span className="text-white font-semibold">{row.others}</span>
             ) : (
               row.others
             )}
           </div>
-        </div>
-      ))}
+        ))}
+      </div>
     </div>
   );
 }

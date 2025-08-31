@@ -28,7 +28,6 @@ export { default as PaymentOptions } from "./ui/PaymentOptions";
 export { default as EvaluationModelSelector } from "./ui/EvaluationModelSelector";
 export { default as PlanCard } from "./ui/PlanCard";
 export { default as StatsBar } from "./ui/StatsBar";
-export { default as FeatureCard } from "./ui/FeatureCard";
 export { default as StepCard } from "./ui/StepCard";
 export { default as RangeSlider } from "./ui/RangeSlider";
 export { default as MetricBox } from "./ui/MetricBox";

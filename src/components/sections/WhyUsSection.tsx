@@ -1,6 +1,6 @@
 "use client";
 
-import { FeatureCard, SectionHeader } from "@/components";
+import { SectionHeader } from "@/components";
 
 export default function WhyUsSection() {
   return (
@@ -19,49 +19,156 @@ export default function WhyUsSection() {
           />
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8">
-          <FeatureCard
-            title="Real Trading Expertise"
-            subtitle="Elite Mind Funding is led and advised by Professionals from Central Banks, Leading Brokers, and Top Prop Firms."
-            emphasis
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8 h-[380px]">
+          <div
+            className="rounded-2xl transition-all duration-300 relative overflow-hidden"
+            style={{
+              background:
+                "linear-gradient(131.19deg, rgba(246, 169, 28, 0.1) 0.49%, rgba(0, 0, 0, 0) 99.51%)",
+              border: "1px solid rgba(246, 169, 28, 0.2)",
+              backdropFilter: "blur(25px)",
+              borderRadius: "10px",
+            }}
           >
-            <span className="text-[#f6a91b] text-sm">CFDs</span>
-          </FeatureCard>
-
-          <FeatureCard
-            title="Competitive Spread & High Leverage"
-            subtitle="Trade with spreads starting from 0.0 Pips and up to 1:100 Leverage."
-            emphasis
-          >
-            <div className="w-full h-16 rounded-full border border-[#f6a91b]/40 flex items-center justify-center text-[#f6a91b]">
-              Gauge
+            <div className="absolute top-0 left-0 right-0 z-50">
+              <img
+                src="/assets/why/testing-4.svg"
+                alt=""
+                className="w-full h-full object-contain "
+              />
             </div>
-          </FeatureCard>
+            <div className="absolute bottom-0 left-0 right-0 z-50">
+              <div className="p-6">
+                <h3 className="text-lg font-bold text-white mb-2">
+                  Real Trading Expertise
+                </h3>
+                <p className="text-gray-300 text-[12px]">
+                  Elite Mind Funding is led and advised by Professionals from
+                  Central Banks, Leading Brokers, and Top Prop Firms.
+                </p>
+              </div>
+            </div>
+          </div>
 
-          <FeatureCard
-            title="Multi-Asset Trading"
-            subtitle="Trade across forex, digital assets, indices, and commodities with precision."
-            emphasis
+          <div
+            className="rounded-2xl transition-all duration-300 relative overflow-hidden"
+            style={{
+              background:
+                "linear-gradient(131.19deg, rgba(246, 169, 28, 0.1) 0.49%, rgba(0, 0, 0, 0) 99.51%)",
+              border: "1px solid rgba(246, 169, 28, 0.2)",
+              backdropFilter: "blur(25px)",
+              borderRadius: "10px",
+            }}
           >
-            <div className="w-full h-12 bg-white/5 rounded" />
-          </FeatureCard>
+            <div className="absolute top-0 left-0 right-0 z-50">
+              <img
+                src="/assets/why/testing-5.svg"
+                alt=""
+                className="w-full h-full object-contain4"
+              />
+            </div>
+            <div className="absolute bottom-0 left-0 right-0 z-50">
+              <div className="p-6">
+                <h3 className="text-lg font-bold text-white mb-2">
+                  Competitive Spread & High Leverage
+                </h3>
+                <p className="text-gray-300 text-[12px]">
+                  Trade with spreads starting from 0.0 Pips and up to 1:100
+                  Leverage.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div
+            className="rounded-2xl transition-all duration-300 relative overflow-hidden"
+            style={{
+              background:
+                "linear-gradient(131.19deg, rgba(246, 169, 28, 0.1) 0.49%, rgba(0, 0, 0, 0) 99.51%)",
+              border: "1px solid rgba(246, 169, 28, 0.2)",
+              backdropFilter: "blur(25px)",
+              borderRadius: "10px",
+            }}
+          >
+            <div className="absolute top-0 left-0 right-0 z-50">
+              <img
+                src="/assets/why/testing-3.svg"
+                alt=""
+                className="w-full h-full object-contain "
+              />
+            </div>
+            <div className="absolute bottom-0 left-0 right-0 z-50">
+              <div className="p-6">
+                <h3 className="text-lg font-bold text-white mb-2">
+                  Multi-Asset Trading
+                </h3>
+                <p className="text-gray-300 text-[12px]">
+                  Trade across forex, digital assets, indices, and commodities
+                  with precision.
+                </p>
+              </div>
+            </div>
+          </div>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8 mt-6">
-          <FeatureCard
-            title="Lightning-Fast Execution"
-            subtitle="Global server mesh routes orders in < 5 ms. You hit price, not slippage."
-            contentPosition="top"
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8 mt-6 h-[360px]">
+          <div
+            className="rounded-2xl transition-all duration-300 relative overflow-hidden"
+            style={{
+              background:
+                "linear-gradient(131.19deg, rgba(246, 169, 28, 0.1) 0.49%, rgba(0, 0, 0, 0) 99.51%)",
+              border: "1px solid rgba(246, 169, 28, 0.2)",
+              backdropFilter: "blur(25px)",
+              borderRadius: "10px",
+            }}
           >
-            <div className="w-full h-24 bg-gradient-to-tr from-[#f6a91b]/20 to-transparent rounded" />
-          </FeatureCard>
-          <FeatureCard
-            title="Best Trading Platforms"
-            subtitle="Trade on the industry's Most Popular Trading Platforms."
-            contentPosition="top"
+            <div className="absolute bottom-0 left-0 right-0 z-50">
+              <img
+                src="/assets/why/testing.svg"
+                alt=""
+                className="w-full h-full object-contain "
+              />
+            </div>
+            <div className="absolute top-0 left-0 right-0 z-50">
+              <div className="p-6">
+                <h3 className="text-lg font-bold text-white mb-2">
+                  Lightning-Fast Execution
+                </h3>
+                <p className="text-gray-300 text-[12px]">
+                  Global server mesh routes orders in &lt; 5 ms. You hit price,
+                  not slippage.
+                </p>
+              </div>
+            </div>
+          </div>
+          <div
+            className="rounded-2xl transition-all duration-300 relative overflow-hidden"
+            style={{
+              background:
+                "linear-gradient(131.19deg, rgba(246, 169, 28, 0.1) 0.49%, rgba(0, 0, 0, 0) 99.51%)",
+              border: "1px solid rgba(246, 169, 28, 0.2)",
+              backdropFilter: "blur(25px)",
+              borderRadius: "10px",
+            }}
           >
-            <div className="w-full h-24 bg-white/5 rounded" />
-          </FeatureCard>
+            <div className="absolute bottom-0 left-0 right-0 z-50">
+              <img
+                src="/assets/why/testing-2.svg"
+                alt=""
+                className="w-full h-full object-contain pl-6 -mb-8"
+              />
+            </div>
+            <div className="absolute top-0 left-0 right-0 z-50">
+              <div className="p-6">
+                <h3 className="text-lg font-bold text-white mb-2">
+                  Best Trading Platforms
+                </h3>
+                <p className="text-gray-300 text-[12px]">
+                  Trade on the industry&apos;s Most Popular Trading Platforms.
+                </p>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </section>

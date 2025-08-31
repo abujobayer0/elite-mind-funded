@@ -4,46 +4,9 @@ import { SectionHeader, ComparisonTable } from "@/components";
 import CheckIcon from "../ui/CheckIcon";
 
 export default function ComparisonSection() {
-  const comparisonData = [
-    {
-      parameter: "Profit Target",
-      eliteMindFunding: "6-7%",
-      others: "8%",
-    },
-    {
-      parameter: "Daily Loss Limit",
-      eliteMindFunding: "3%",
-      others: "2%",
-    },
-    {
-      parameter: "Trailing Max Drawdown",
-      eliteMindFunding: "4-5%",
-      others: "3-4%",
-    },
-    {
-      parameter: "Activation Fee",
-      eliteMindFunding: "Starter Only",
-      others: (
-        <div className="w-6 h-6 rounded-full bg-[#2a2a2a] flex items-center justify-center">
-          <CheckIcon width={16} height={16} strokeColor="white" />
-        </div>
-      ),
-    },
-    {
-      parameter: "Scaling Rule",
-      eliteMindFunding: "Reset Fee",
-      others: "Same Fee As Initial Price",
-    },
-    {
-      parameter: "Minimum Trading Days",
-      eliteMindFunding: "3-4 Days",
-      others: "5 Days",
-    },
-  ];
-
   return (
     <section className="relative bg-black py-20">
-      <div className="max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="max-w-7xl w-full mx-auto px-4 sm:px-6 md:px-12 lg:px-22 xl:px-32">
         <SectionHeader
           badge="Comparison Table"
           title={
@@ -55,7 +18,8 @@ export default function ComparisonSection() {
           className="text-center mb-10"
         />
 
-        <ComparisonTable rows={comparisonData} />
+        <div className="h-10"></div>
+        <ComparisonTable />
       </div>
     </section>
   );
