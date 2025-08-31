@@ -40,11 +40,15 @@ export default function PlanCard({
             : "0px",
       }}
     >
-      <div className="flex items-start gap-3 mb-4">
-        <div className="w-8 h-8 rounded-lg bg-[#1f1808] ring-1 ring-[#f6a91b]/30 flex items-center justify-center">
-          <span className="text-[#f6a91b]">🏷️</span>
+      <div className="flex flex-col items-center gap-3 mb-4">
+        <div className="w-[54px] h-[54px] bg-[rgba(246,169,28,0.1)] border border-[#F6A91C] shadow-[0px_0px_20px_rgba(246,169,28,0.6),inset_0px_0px_20px_rgba(246,169,28,0.8)] rounded-[10px] flex items-center justify-center">
+          <img
+            src="/assets/EMF-logo-white.png"
+            alt=""
+            className="w-full h-full object-contain p-2"
+          />
         </div>
-        <div className="text-left">
+        <div className="text-center">
           <h3 className="text-white text-2xl font-semibold">{title}</h3>
           <p className="text-gray-400 text-sm mt-1 max-w-sm">{subtitle}</p>
         </div>

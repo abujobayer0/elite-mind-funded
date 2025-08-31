@@ -1,77 +1,244 @@
 "use client";
 
-import { Badge, StepCard } from "@/components";
+import {
+  SectionHeader,
+  StepCard,
+  DollarCircleIcon,
+  StarRatingIcon,
+  NetworkIcon,
+  GitBranchIcon,
+  CardIcon,
+  ArrowsIcon,
+  MinusCircleIcon,
+} from "@/components";
+import ETHIcon from "../icons/ETHIcon";
+import MATICIcon from "../icons/MATICIcon";
+import { EllipsisVertical } from "lucide-react";
 
 export default function DashboardSection() {
   return (
-    <section className="relative bg-black py-20">
+    <section
+      className="relative bg-black py-20"
+      style={{
+        background:
+          "radial-gradient(72.22% 28.41% at 50% 21.59%, rgba(255, 204, 0, 0.15) 0%, rgba(1, 1, 2, 0) 100%)",
+      }}
+    >
       <div className="max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-10">
-          <Badge>Our Dashboard</Badge>
-          <h2 className="text-white text-3xl md:text-5xl font-bold mt-4">
-            Trading Made Easy, <span className="text-[#f6a91b]">For You.</span>
-          </h2>
-          <p className="text-gray-400 mt-3 max-w-2xl mx-auto">
-            Your Skills With Our Risk. You’re Not Liable For Any Losses.
-          </p>
-        </div>
-
-        {/* Dashboard Mockup */}
-        <div className="rounded-2xl border border-white/10 bg-gradient-to-b from-[#121212] to-black p-4 md:p-6 mb-10">
-          <div className="h-[320px] md:h-[420px] rounded-xl bg-black/60 border border-white/10 relative overflow-hidden">
-            {/* Left rail */}
-            <div className="absolute left-0 top-0 bottom-0 w-56 bg-black/60 border-r border-white/10 p-4 space-y-3 hidden md:block">
-              <div className="h-10 rounded-lg bg-[#f6a91b] text-black font-medium flex items-center px-3">
-                Dashboard
-              </div>
-              {[
-                "Overview",
-                "Leaderboard",
-                "Watchlist",
-                "Competitions",
-                "Affiliate Program",
-              ].map((item) => (
-                <div
-                  key={item}
-                  className="h-9 rounded-md bg-white/5 text-white/70 flex items-center px-3 text-sm"
-                >
-                  {item}
+        <SectionHeader
+          badge="Our Dashboard"
+          title={
+            <>
+              Trading Made Easy,{" "}
+              <span className="text-[#f6a91b]">For You.</span>
+            </>
+          }
+          subtitle="Your Skills With Our Risk. You're Not Liable For Any Losses."
+          className="text-center mb-10"
+        />
+        <div className="relative">
+          {/* Dashboard Mockup */}
+          <div className="px-6">
+            <div className="rounded-4xl p-2 mb-10 bg-white/10 backdrop-blur-sm border border-white/10">
+              <div className="h-[530px] bg-black/70 relative overflow-hidden rounded-3xl border border-white/10">
+                {/* Left Sidebar */}
+                <div className="absolute left-0 top-0 bottom-0 w-64 bg-black/80 backdrop-blur-sm border-r border-white/10 p-4 space-y-2 hidden md:block">
+                  <div className="h-3"></div>
+                  {/* Navigation Items */}
+                  {[
+                    {
+                      name: "Dashboard",
+                      icon: CardIcon,
+                      active: true,
+                    },
+                    { name: "Overview", icon: MinusCircleIcon },
+                    { name: "Leaderboard", icon: DollarCircleIcon },
+                    { name: "Watchlist", icon: StarRatingIcon },
+                    { name: "Competitions", icon: NetworkIcon },
+                    { name: "Affiliate Program", icon: GitBranchIcon },
+                    { name: "Swap", icon: ArrowsIcon },
+                  ].map((item, index) => (
+                    <div
+                      key={`${item.name}-${index}`}
+                      className={`h-10 rounded-lg flex items-center px-4 text-sm gap-3 transition-all duration-200 ${
+                        item.active
+                          ? "bg-gradient-to-r from-[#f6a91b] to-[#ff8c00] text-black font-semibold shadow-lg"
+                          : "bg-transparent text-white/60 hover:bg-white/5 hover:text-white/80"
+                      }`}
+                    >
+                      <item.icon
+                        size={16}
+                        className={item.active ? "text-black" : "text-white/40"}
+                      />
+                      {item.name}
+                    </div>
+                  ))}
                 </div>
-              ))}
-            </div>
-            {/* Header badge */}
-            <div className="absolute right-4 top-4 w-10 h-10 rounded-lg bg-white/10" />
-            {/* Body rows (placeholders) */}
-            <div className="absolute inset-0 md:left-56 p-4 md:p-6">
-              <div className="text-white/90 font-semibold">Dashboard</div>
-              <div className="mt-6 flex items-center gap-3">
-                <div className="h-8 w-28 rounded-full bg-white/5" />
-                <div className="h-8 w-24 rounded-full bg-white/5" />
-                <div className="h-8 w-24 rounded-full bg-white/5" />
+
+                {/* Main Content */}
+                <div className="absolute inset-0 md:left-64 p-6 overflow-hidden">
+                  <div className="h-6"></div>
+                  {/* Header */}
+                  <div className="flex items-center justify-between mb-8">
+                    <div>
+                      <h1 className="text-white text-2xl font-bold mb-1">
+                        Dashboard
+                      </h1>
+                    </div>
+                    <div className="flex items-center gap-3">
+                      <div className="w-10 h-10 flex items-center justify-center">
+                        <img
+                          src="/assets/EMF-logo-white.png"
+                          alt=""
+                          className="w-full object-contain h-full"
+                        />
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* Portfolio Value */}
+                  <div className="mb-8">
+                    <div className="text-white/60 text-sm font-medium mb-2">
+                      Portfolio Value
+                    </div>
+                    <div className="text-white text-4xl font-bold">
+                      $27,437.19
+                    </div>
+                  </div>
+
+                  {/* Assets Section */}
+                  <div className="mb-6">
+                    <div className="flex items-center justify-between mb-4">
+                      <h2 className="text-white text-xl font-semibold">
+                        Assets
+                      </h2>
+                      <div className="flex items-center gap-3">
+                        <div className="flex items-center gap-2 px-4 py-2 border border-white/20 h-[50px] rounded-full">
+                          <span className="text-white/80 text-sm">
+                            List view
+                          </span>
+                          <svg
+                            className="w-4 h-4 text-white/60"
+                            fill="none"
+                            stroke="currentColor"
+                            viewBox="0 0 24 24"
+                          >
+                            <path
+                              strokeLinecap="round"
+                              strokeLinejoin="round"
+                              strokeWidth={2}
+                              d="M19 9l-7 7-7-7"
+                            />
+                          </svg>
+                        </div>
+                        <div className="flex items-center rounded-full overflow-hidden border border-white/20 p-1 h-[50px]">
+                          <div className="bg-white/10 px-4 py-2 rounded-full">
+                            <span className="text-white/80 text-sm">
+                              All Trades
+                            </span>
+                          </div>
+                          <div className="bg-transparent px-4 py-2 text-white/40 rounded-full">
+                            <span className="text-white/80 text-sm">
+                              Accounts
+                            </span>
+                          </div>
+                          <div className="bg-transparent px-4 py-2 text-white/40 rounded-full">
+                            <span className="text-white/80 text-sm">
+                              Funded Accounts
+                            </span>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div className="h-[1px] w-full bg-white/10 mb-4"></div>
+
+                    {/* Assets Table */}
+                    <div className="bg-[#ffffff09] rounded-2xl border border-white/10 overflow-hidden">
+                      {/* Table Header */}
+                      <div className="grid grid-cols-4 gap-6 px-6 py-4 border-b border-white/10">
+                        <div className="text-white/80 text-sm font-medium flex items-center">
+                          Assets <EllipsisVertical size={16} />
+                        </div>
+                        <div className="text-white/80 text-sm font-medium">
+                          Portfolio %
+                        </div>
+                        <div className="text-white/80 text-sm font-medium">
+                          Price
+                        </div>
+                        <div className="text-white/80 text-sm font-medium text-right">
+                          Balance
+                        </div>
+                      </div>
+
+                      {/* ETH Row */}
+                      <div className="grid grid-cols-4 gap-6 px-6 py-4 border-b border-white/5">
+                        <div className="flex items-center gap-3">
+                          <ETHIcon />
+                          <div>
+                            <div className="text-white font-medium">ETH</div>
+                            <div className="text-white/60 text-sm">
+                              Ethereum
+                            </div>
+                          </div>
+                        </div>
+                        <div className="text-white font-bold">39.34%</div>
+                        <div className="text-white font-bold">$1,996.55</div>
+                        <div className="text-white text-right font-bold">
+                          $10,793.78
+                        </div>
+                      </div>
+
+                      {/* MATIC Row */}
+                      <div className="grid grid-cols-4 gap-6 px-6 py-4">
+                        <div className="flex items-center gap-3">
+                          <MATICIcon />
+                          <div>
+                            <div className="text-white font-medium">MATIC</div>
+                            <div className="text-white/60 text-sm">
+                              Ethereum
+                            </div>
+                          </div>
+                        </div>
+                        <div className="text-white font-bold">11.60%</div>
+                        <div className="text-white font-bold">$0.65</div>
+                        <div className="text-white text-right font-bold">
+                          $5,926.43
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
               </div>
-              <div className="mt-6 h-40 rounded-lg bg-white/5" />
-              <div className="mt-4 h-28 rounded-lg bg-white/5" />
             </div>
           </div>
-        </div>
+          {/* </div> */}
 
-        {/* Steps */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8">
-          <StepCard
-            title="Trade & Get Paid"
-            description="Our Dedicated Support team is always here to help."
-            step="3 Step"
-          />
-          <StepCard
-            title="Unlock Capital"
-            description="Receive Payouts with a High Profit Split."
-            step="2 Step"
-          />
-          <StepCard
-            title="Take a Challenge"
-            description="Trade you with our capital without being liable."
-            step="1 Step"
-          />
+          <div
+            className="absolute bottom-0 top-[46%] w-full h-auto z-5"
+            style={{
+              background:
+                "linear-gradient(180deg, rgba(9, 9, 9, 0) 0%,rgba(9, 9, 9, 1) 40%, rgba(9, 9, 9, 1) 100%)",
+            }}
+          ></div>
+          {/* Steps */}
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8 -mt-[140px] relative z-50">
+            <StepCard
+              title="Trade & Get Paid"
+              description="Our Dedicated Support team is always here to help."
+              step="3 Step"
+            />
+            <StepCard
+              title="Unlock Capital"
+              description="Receive Payouts with a High Profit Split."
+              step="2 Step"
+            />
+            <StepCard
+              title="Take a Challenge"
+              description="Trade you with our capital without being liable."
+              step="1 Step"
+            />
+          </div>
         </div>
       </div>
     </section>

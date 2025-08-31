@@ -1,20 +1,22 @@
 "use client";
 
-import { Badge, FeatureCard } from "@/components";
+import { FeatureCard, SectionHeader } from "@/components";
 
 export default function WhyUsSection() {
   return (
     <section className="relative bg-black py-20">
       <div className="max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-10">
-          <Badge>Why Us</Badge>
-          <h2 className="text-white text-3xl md:text-5xl font-bold mt-4">
-            Why <span className="text-[#f6a91b]">Elite Mind Funding?</span>
-          </h2>
-          <p className="text-white/95 mt-3 max-w-3xl mx-auto text-lg font-normal">
-            Be A Part Of The EMF Community And Experience The Most Competitive
-            Demo Trading Environment.
-          </p>
+          <SectionHeader
+            badge="Why Us"
+            title={
+              <>
+                Why <span className="text-[#f6a91b]">Elite Mind Funding?</span>
+              </>
+            }
+            subtitle="Be A Part Of The EMF Community And Experience The Most Competitive
+            Demo Trading Environment."
+          />
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8">

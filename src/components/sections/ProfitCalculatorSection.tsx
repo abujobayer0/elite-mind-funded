@@ -1,7 +1,14 @@
 "use client";
 
 import { useMemo, useState } from "react";
-import { Badge, RangeSlider, MetricBox, Button } from "@/components";
+import {
+  Badge,
+  RangeSlider,
+  MetricBox,
+  Button,
+  GradientSection,
+  SectionHeader,
+} from "@/components";
 
 export default function ProfitCalculatorSection() {
   const [accountSize, setAccountSize] = useState(100);
@@ -27,23 +34,25 @@ export default function ProfitCalculatorSection() {
   }, [accountSize]);
 
   return (
-    <section className="relative bg-black py-20">
+    <GradientSection>
       <div className="max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-10">
-          <Badge>Profit Calculator</Badge>
-          <h2 className="text-white text-3xl md:text-5xl font-bold mt-4">
-            Calculate Your{" "}
-            <span className="text-[#f6a91b]">Potential Profits</span> With EMF
-          </h2>
-          <p className="text-gray-400 mt-3 max-w-3xl mx-auto text-sm md:text-base">
-            Explore How Much You Can Earn With A Funded Account. No Risk, Just
-            Opportunities!
-          </p>
+          <SectionHeader
+            badge="Profit Calculator"
+            title={
+              <>
+                Calculate Your{" "}
+                <span className="text-[#f6a91b]">Potential Profits</span> With
+                EMF
+              </>
+            }
+            subtitle="Explore How Much You Can Earn With A Funded Account. No Risk, Just Opportunities!"
+          />
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8 border border-[#f6a91b]/70 rounded-2xl p-3">
           {/* Left: Controls */}
-          <div className="rounded-2xl border border-[#f6a91b]/30 bg-[#0f0f0f] p-6 md:p-8">
+          <div className="rounded-2xl border border-white/10 p-6 md:p-8">
             <h3 className="text-white text-2xl font-semibold mb-6">
               How Much Can You Get?
             </h3>
@@ -85,28 +94,39 @@ export default function ProfitCalculatorSection() {
           </div>
 
           {/* Right: Results */}
-          <div className="rounded-2xl border border-[#f6a91b]/30 bg-[#0f0f0f] p-6 md:p-8">
-            <div className="rounded-xl border border-white/10 p-6 md:p-8">
-              <MetricBox
-                label="Your Calculated Profit:"
-                value={calculatedProfit.toLocaleString("en-US", {
-                  style: "currency",
-                  currency: "USD",
-                })}
-                highlighted
-              />
-              <div className="mt-6" />
-              <MetricBox
-                label="Challenge Cost:"
-                value={challengeCost.toLocaleString("en-US", {
-                  style: "currency",
-                  currency: "USD",
-                })}
-              />
+          <div className="rounded-2xl border border-white/10 p-6 md:p-8  flex items-center justify-center">
+            <div className="bg-gradient-to-bl from-[#f6a91b]/10 to-transparent border border-[#f6a91b]/30 w-full h-full rounded-2xl">
+              <div className="space-y-4 p-4 h-full flex flex-col items-center justify-center">
+                {/* Golden Profit Card */}
+                <div className="rounded-2xl bg-gradient-to-r from-[#f6a91b] to-[#e6971a] px-8 py-4 text-center ring-5 ring-[#f6a91b]/20">
+                  <p className="text-black/70 text-sm font-medium mb-2">
+                    Your Calculated Profit:
+                  </p>
+                  <p className="text-black text-5xl font-bold">
+                    {calculatedProfit.toLocaleString("en-US", {
+                      style: "currency",
+                      currency: "USD",
+                    })}
+                  </p>
+                </div>
+
+                {/* Challenge Cost */}
+                <div className="text-center">
+                  <p className="text-white text-md font-normal mb-2">
+                    Challenge Cost:
+                  </p>
+                  <p className="text-white text-4xl font-bold">
+                    {challengeCost.toLocaleString("en-US", {
+                      style: "currency",
+                      currency: "USD",
+                    })}
+                  </p>
+                </div>
+              </div>
             </div>
           </div>
         </div>
       </div>
-    </section>
+    </GradientSection>
   );
 }

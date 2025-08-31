@@ -4,7 +4,7 @@ interface BoltIconProps extends React.SVGProps<SVGSVGElement> {
   color?: string;
 }
 
-const BoltIcon: React.FC<BoltIconProps> = ({ color = "#090909", ...props }) => {
+const BoltIcon: React.FC<BoltIconProps> = ({ color, ...props }) => {
   return (
     <svg
       width="14"

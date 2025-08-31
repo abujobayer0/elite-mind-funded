@@ -1,6 +1,6 @@
 "use client";
 
-import { Badge, ComparisonTable } from "@/components";
+import { SectionHeader, ComparisonTable } from "@/components";
 import CheckIcon from "../ui/CheckIcon";
 
 export default function ComparisonSection() {
@@ -44,16 +44,16 @@ export default function ComparisonSection() {
   return (
     <section className="relative bg-black py-20">
       <div className="max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-10">
-          <Badge>Comparison Table</Badge>
-          <h2 className="text-white text-3xl md:text-5xl font-bold mt-4">
-            Why <span className="text-[#f6a91b]">Elite Mind Funding</span>?
-          </h2>
-          <p className="text-gray-400 mt-3 max-w-3xl mx-auto text-sm md:text-base">
-            Be A Part Of The EMF Community And Experience The Most Competitive
-            Demo Trading Environment.
-          </p>
-        </div>
+        <SectionHeader
+          badge="Comparison Table"
+          title={
+            <>
+              Why <span className="text-[#f6a91b]">Elite Mind Funding</span>?
+            </>
+          }
+          subtitle="Be A Part Of The EMF Community And Experience The Most Competitive Demo Trading Environment."
+          className="text-center mb-10"
+        />
 
         <ComparisonTable rows={comparisonData} />
       </div>

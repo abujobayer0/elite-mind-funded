@@ -1,33 +1,36 @@
 @import "tailwindcss";
-
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
+@import "tw-animate-css";
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --font-satoshi: var(--font-satoshi);
-  --main-bg: #090909;
+  --main-bg: #000;
   --primary-color: #f6a91b;
 }
 
 @theme {
   --breakpoint-3xl: 1840px;
   --breakpoint-4xl: 2040px;
-}
+  --breakpoint-extreme: 3450px;
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+  --animate-shine: shine 5s linear infinite;
+
+  @keyframes shine {
+    0% {
+      background-position: 100%;
+    }
+    100% {
+      background-position: -100%;
+    }
   }
 }
 
+html {
+  background-color: var(--main-bg);
+}
+
 body {
-  background: var(--background);
-  color: var(--foreground);
   font-family: var(--font-satoshi);
 }
 

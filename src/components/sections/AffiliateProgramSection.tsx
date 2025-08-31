@@ -1,6 +1,6 @@
 "use client";
 
-import { Badge, Button, AffiliateFeatureCard } from "@/components";
+import { SectionHeader, Button, AffiliateFeatureCard } from "@/components";
 
 export default function AffiliateProgramSection() {
   const features = [
@@ -24,35 +24,42 @@ export default function AffiliateProgramSection() {
   return (
     <section className="relative bg-black py-20">
       <div className="max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-10">
-          <Badge>Affiliate Program</Badge>
-          <h1 className="text-white text-3xl md:text-6xl font-bold mt-4">
-            Refer & Earn <span className="text-[#f6a91b]">Big</span> With EMF
-          </h1>
-          <p className="text-gray-400 mt-3 max-w-3xl mx-auto text-sm md:text-base">
-            Profit From The Biggest Revolution In Trading. It’s Super Simple.
-            Get Started Today!
-          </p>
-
-          <div className="mt-6 flex items-center justify-center gap-4">
-            <Button
-              href="/affiliate"
-              variant="primary"
-              size="md"
-              className="w-auto px-6"
-            >
-              Become An Affiliate ↗
-            </Button>
-            <Button
-              href="/affiliate/login"
-              variant="ghost"
-              size="md"
-              className="w-auto px-6 border border-white/10"
-            >
-              Affiliate Login ↗
-            </Button>
-          </div>
-        </div>
+        <SectionHeader
+          badge="Affiliate Program"
+          title={
+            <>
+              Refer & Earn <span className="text-[#f6a91b]">Big</span> With EMF
+            </>
+          }
+          subtitle={
+            <>
+              <p className="mb-6">
+                Profit From The Biggest Revolution In Trading. It&apos;s Super
+                Simple. Get Started Today!
+              </p>
+              <div className="flex items-center justify-center gap-4">
+                <Button
+                  href="/affiliate"
+                  variant="primary"
+                  size="md"
+                  className="w-auto px-6"
+                >
+                  Become An Affiliate ↗
+                </Button>
+                <Button
+                  href="/affiliate/login"
+                  variant="ghost"
+                  size="md"
+                  className="w-auto px-6 border border-white/10"
+                >
+                  Affiliate Login ↗
+                </Button>
+              </div>
+            </>
+          }
+          className="text-center mb-10"
+          titleClassName="text-3xl md:text-6xl"
+        />
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8">
           {features.map((f) => (

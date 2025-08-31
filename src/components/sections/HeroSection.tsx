@@ -1,10 +1,11 @@
 "use client";
 
-import { Button, Badge } from "@/components";
+import { Button, SectionHeader } from "@/components";
 import HeroGlow from "../icons/HeroGlow";
-import Image from "next/image";
 import CheckIcon from "../ui/CheckIcon";
 import StarIcon from "../icons/StarIcon";
+import HeroRightShape from "../shapes/HeroRightShape";
+import HeroLeftShape from "../shapes/HeroLeftShape";
 
 export default function HeroSection() {
   return (
@@ -14,50 +15,38 @@ export default function HeroSection() {
           <HeroGlow />
         </div>
         <div className="absolute bottom-0 top-0 left-1/2 transform -translate-x-1/2 min-w-[1800px] w-full h-full mx-auto  md:flex items-center justify-between gap-60 hidden">
-          <div className="transform 4xl:translate-y-[27%] 3xl:translate-y-[37%] translate-y-[41.5%] w-1/2 h-full">
-            <Image
-              src="/assets/hero-left-shape.png"
-              alt=""
-              width={1000}
-              height={1000}
-              className="w-full object-fill"
-            />
+          <div className="transform translate-y-[20%] w-1/2 h-full ">
+            <HeroLeftShape />
           </div>
-          <div className="transform 4xl:translate-y-[27%] 3xl:translate-y-[37%] translate-y-[41.5%] w-1/2 h-full">
-            <Image
-              src="/assets/hero-right-shape.png"
-              alt=""
-              width={1000}
-              height={1000}
-              className="w-full"
-            />
+          <div className="transform translate-y-[20%] w-1/2 h-full ">
+            <HeroRightShape />
           </div>
         </div>
       </div>
       <div className="relative z-10 max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 text-center">
-        <Badge>Elite Mind Funding</Badge>
-
-        {/* Main Headline */}
-        <div className="mb-4 mt-4">
-          <h1 className="text-3xl md:text-5xl font-bold text-white mb-4">
-            We Fund Traders
-            <img
-              className="inline-block h-[62px] object-contain"
-              src="/assets/hero-icons.png"
-              alt=""
-            />
-            Up to $200k
-          </h1>
-        </div>
-
-        {/* Supporting Text */}
-        <p className="text-lg md:text-md text-gray-300 mb-8 max-w-4xl mx-auto leading-relaxed">
-          Prove Your Trading Skills In Our Evaluation. Get Funded With Up To
-          200K. Keep <br /> Up To 100% Of Your Profits —{" "}
-          <span className="text-[#f6a91b] font-semibold">
-            Paid In Real Cash.
-          </span>
-        </p>
+        <SectionHeader
+          badge="Elite Mind Funding"
+          title={
+            <>
+              We Fund Traders
+              <img
+                className="inline-block h-[62px] object-contain"
+                src="/assets/hero-icons.png"
+                alt=""
+              />
+              Up to $200k
+            </>
+          }
+          subtitle={
+            <>
+              Prove Your Trading Skills In Our Evaluation. Get Funded With Up To
+              200K. Keep <br /> Up To 100% Of Your Profits —{" "}
+              <span className="text-[#f6a91b] font-semibold">
+                Paid In Real Cash.
+              </span>
+            </>
+          }
+        />
 
         {/* CTA Buttons */}
         <div className="flex flex-col sm:flex-row gap-4 justify-center mb-6">

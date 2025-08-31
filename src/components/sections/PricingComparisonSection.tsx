@@ -1,6 +1,6 @@
 "use client";
 
-import { Badge } from "@/components";
+import { Badge, GradientSection } from "@/components";
 
 export default function PricingComparisonSection() {
   const comparisonData = [
@@ -42,7 +42,7 @@ export default function PricingComparisonSection() {
   ];
 
   return (
-    <section className="relative bg-black py-20">
+    <GradientSection>
       <div className="max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-10">
           <Badge>Comparison</Badge>
@@ -117,6 +117,6 @@ export default function PricingComparisonSection() {
           </div>
         </div>
       </div>
-    </section>
+    </GradientSection>
   );
 }

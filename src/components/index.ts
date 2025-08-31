@@ -38,3 +38,27 @@ export { default as AffiliateFeatureCard } from "./ui/AffiliateFeatureCard";
 export { default as TierCard } from "./ui/TierCard";
 export { default as BonusCard } from "./ui/BonusCard";
 export { default as TimelineStep } from "./ui/TimelineStep";
+export { default as SectionHeader } from "./ui/SectionHeader";
+export { default as GradientSection } from "./ui/GradientSection";
+export { default as AccountSlider } from "./ui/AccountSlider";
+
+// Icon Components
+export { default as BoltIcon } from "./icons/BoltIcon";
+export { default as CalendarTimeIcon } from "./icons/CalendarTimeIcon";
+export { default as HeroGlow } from "./icons/HeroGlow";
+export { default as ProfitIcon } from "./icons/ProfitIcon";
+export { default as StarIcon } from "./icons/StarIcon";
+export { default as StepOneIcon } from "./icons/StepOneIcon";
+export { default as TwoStepIcon } from "./icons/TwoStepIcon";
+export { default as UserIcon } from "./icons/UserIcon";
+export { default as CardIcon } from "./icons/CardIcon";
+export { default as MinusCircleIcon } from "./icons/MinusCircleIcon";
+export { default as DollarCircleIcon } from "./icons/DollarCircleIcon";
+export { default as StarRatingIcon } from "./icons/StarRatingIcon";
+export { default as NetworkIcon } from "./icons/NetworkIcon";
+export { default as GitBranchIcon } from "./icons/GitBranchIcon";
+export { default as ArrowsIcon } from "./icons/ArrowsIcon";
+export { default as RocketIcon } from "./icons/RocketIcon";
+export { default as DollarSignIcon } from "./icons/DollarSignIcon";
+export { default as ClockIcon } from "./icons/ClockIcon";
+export { default as SecurityIcon } from "./icons/SecurityIcon";

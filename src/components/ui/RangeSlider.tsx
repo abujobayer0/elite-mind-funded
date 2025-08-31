@@ -1,3 +1,5 @@
+"use client";
+
 import React from "react";
 
 interface RangeSliderProps {
@@ -34,9 +36,44 @@ export default function RangeSlider({
         step={step}
         value={value}
         onChange={(e) => onChange(Number(e.target.value))}
-        className="w-full h-1.5 appearance-none bg-[#2a2a2a] rounded outline-none [--thumb:#f6a91b]"
-        style={{ accentColor: "#f6a91b" }}
+        className="w-full h-[2px] appearance-none rounded outline-none range-slider"
+        style={{
+          background: `linear-gradient(to right, #f6a91c 0%, #f6a91c ${
+            ((value - min) / (max - min)) * 100
+          }%, #6e4f14 ${((value - min) / (max - min)) * 100}%, #6e4f14 100%)`,
+        }}
       />
+      <style jsx>{`
+        .range-slider::-webkit-slider-track {
+          height: 2px;
+          border-radius: 2px;
+        }
+
+        .range-slider::-webkit-slider-thumb {
+          appearance: none;
+          width: 24px;
+          height: 10px;
+          background: #f6a91c;
+          border-radius: 10px;
+          cursor: pointer;
+          border: none;
+        }
+
+        .range-slider::-moz-range-track {
+          height: 2px;
+          border-radius: 2px;
+          border: none;
+        }
+
+        .range-slider::-moz-range-thumb {
+          width: 24px;
+          height: 10px;
+          background: #f6a91c;
+          border-radius: 10px;
+          cursor: pointer;
+          border: none;
+        }
+      `}</style>
     </div>
   );
 }
