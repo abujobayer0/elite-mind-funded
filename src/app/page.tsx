@@ -1,54 +1,6 @@
 "use client";
 import { motion } from "motion/react";
 
-const Candlestick = ({
-  height,
-  isGreen,
-  delay = 0,
-  x,
-  y,
-}: {
-  height: number;
-  isGreen: boolean;
-  delay?: number;
-  x: string;
-  y: string;
-}) => {
-  return (
-    <motion.div
-      className={`absolute ${x} ${y} w-3 opacity-30`}
-      initial={{ opacity: 0, scaleY: 0 }}
-      animate={{ opacity: 0.3, scaleY: 1 }}
-      transition={{ duration: 1, delay, ease: "easeOut" }}
-    >
-      {/* Candlestick wick */}
-      <motion.div
-        className={`w-0.5 mx-auto ${isGreen ? "bg-green-400" : "bg-red-400"}`}
-        style={{ height: height + 20 }}
-        animate={{ scaleY: [1, 1.1, 1] }}
-        transition={{
-          duration: 3,
-          repeat: Number.POSITIVE_INFINITY,
-          ease: "easeInOut",
-        }}
-      />
-      {/* Candlestick body */}
-      <motion.div
-        className={`w-3 ${
-          isGreen ? "bg-green-500" : "bg-red-500"
-        } absolute top-2 left-0`}
-        style={{ height: height - 10 }}
-        animate={{ scaleY: [1, 1.05, 1] }}
-        transition={{
-          duration: 2.5,
-          repeat: Number.POSITIVE_INFINITY,
-          ease: "easeInOut",
-        }}
-      />
-    </motion.div>
-  );
-};
-
 const Page = () => {
   return (
     <div className="min-h-screen relative overflow-hidden">
@@ -110,7 +62,16 @@ const Page = () => {
             {/* Progress bar container - rectangular like in image */}
             <div className="w-full max-w-md mx-auto">
               <div className="h-6 bg-transparent border-2 border-[#f6a91b] overflow-hidden relative p-0.5">
-                <div className="h-full bg-[#f6a91b] w-1/2" />
+                <motion.div
+                  className="h-full bg-[#f6a91b]"
+                  initial={{ width: "0%" }}
+                  animate={{ width: "70%" }}
+                  transition={{
+                    duration: 2.5,
+                    ease: "easeOut",
+                    delay: 0.5,
+                  }}
+                />
               </div>
             </div>
           </div>
