@@ -19,7 +19,7 @@ export default function WhyUsSection() {
           />
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8 h-[380px]">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8 min-h-[1060px] lg:min-h-[320px] md:min-h-[740px] sm:min-h-[600px]">
           <div
             className="rounded-2xl transition-all duration-300 relative overflow-hidden"
             style={{
@@ -111,7 +111,7 @@ export default function WhyUsSection() {
           </div>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8 mt-6 h-[360px]">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8 mt-6 min-h-[660px] sm:min-h-[800px] md:min-h-[280px] lg:min-h-[360px]">
           <div
             className="rounded-2xl transition-all duration-300 relative overflow-hidden"
             style={{

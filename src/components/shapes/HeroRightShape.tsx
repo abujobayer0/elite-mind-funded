@@ -4,10 +4,9 @@ const HeroRightShape: React.FC = () => {
   return (
     <svg
       width="709"
-      height="auto"
       viewBox="0 0 709 432"
       fill="none"
-      className="w-full transform scale-100 4xl:scale-[1.14] extreme:hidden"
+      className="w-full h-auto transform scale-100 4xl:scale-[1.14] extreme:hidden"
       xmlns="http://www.w3.org/2000/svg"
     >
       <g opacity="0.25" filter="url(#filter0_iii_144_462)">
@@ -30,9 +29,9 @@ const HeroRightShape: React.FC = () => {
           width="738.513"
           height="788.707"
           filterUnits="userSpaceOnUse"
-          color-interpolation-filters="sRGB"
+          colorInterpolationFilters="sRGB"
         >
-          <feFlood flood-opacity="0" result="BackgroundImageFix" />
+          <feFlood floodOpacity="0" result="BackgroundImageFix" />
           <feBlend
             mode="normal"
             in="SourceGraphic"
@@ -101,9 +100,9 @@ const HeroRightShape: React.FC = () => {
           width="738.513"
           height="788.707"
           filterUnits="userSpaceOnUse"
-          color-interpolation-filters="sRGB"
+          colorInterpolationFilters="sRGB"
         >
-          <feFlood flood-opacity="0" result="BackgroundImageFix" />
+          <feFlood floodOpacity="0" result="BackgroundImageFix" />
           <feBlend
             mode="normal"
             in="SourceGraphic"
@@ -173,8 +172,8 @@ const HeroRightShape: React.FC = () => {
           y2="318.172"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#F6A91C" stop-opacity="0.04" />
-          <stop offset="1" stop-color="#F6A91C" stop-opacity="0.01" />
+          <stop stopColor="#F6A91C" stopOpacity="0.04" />
+          <stop offset="1" stopColor="#F6A91C" stopOpacity="0.01" />
         </linearGradient>
         <linearGradient
           id="paint1_linear_144_462"
@@ -184,8 +183,8 @@ const HeroRightShape: React.FC = () => {
           y2="363.078"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#F6A91C" stop-opacity="0.04" />
-          <stop offset="1" stop-color="#F6A91C" stop-opacity="0.01" />
+          <stop stopColor="#F6A91C" stopOpacity="0.04" />
+          <stop offset="1" stopColor="#F6A91C" stopOpacity="0.01" />
         </linearGradient>
       </defs>
     </svg>

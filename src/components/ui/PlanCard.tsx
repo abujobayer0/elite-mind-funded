@@ -21,23 +21,25 @@ export default function PlanCard({
 }: PlanCardProps) {
   return (
     <div
-      className={
-        "relative border p-6 md:p-8 transition-all duration-300 " +
-        (highlighted
-          ? "border-[#f6a91b]/30 shadow-[0_0_40px_rgba(246,169,27,0.08)] rounded-xl"
-          : "border-white/10 bg-[#0f0f0f] ")
-      }
+      className={`relative border p-6 transition-all duration-300 
+        ${
+          index === 0
+            ? "rounded-xl md:rounded-r-none"
+            : index === 2
+            ? "rounded-xl md:rounded-l-none"
+            : highlighted
+            ? "rounded-xl"
+            : ""
+        }
+
+        ${
+          highlighted
+            ? "border-[#f6a91b]/30 shadow-[0_0_40px_rgba(246,169,27,0.08)] rounded-xl"
+            : "border-white/10 bg-[#0f0f0f] "
+        }`}
       style={{
         background:
           "linear-gradient(161.16deg, rgba(246, 169, 28, 0.1) 0.49%, rgba(8, 8, 9, 0) 99.51%)",
-        borderRadius:
-          index === 0
-            ? "14px 0px 0px 14px"
-            : index === 2
-            ? "0px 14px 14px 0px"
-            : highlighted
-            ? "14px"
-            : "0px",
       }}
     >
       <div className="flex flex-col items-center gap-3 mb-4">

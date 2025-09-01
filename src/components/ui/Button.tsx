@@ -64,7 +64,9 @@ export default function Button({
       disabled={disabled}
       {...props}
     >
-      {icon && <span className="mr-2">{icon}</span>}
+      {icon && (
+        <span className="mr-1 sm:mr-2 scale-75 sm:scale-100">{icon}</span>
+      )}
       {children}
     </button>
   );

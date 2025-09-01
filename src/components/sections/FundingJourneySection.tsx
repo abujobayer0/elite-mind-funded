@@ -64,7 +64,7 @@ export default function FundingJourneySection() {
           />
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-4 my-22">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-4 lg:gap-[16px] md:gap-[12px] my-22">
           {cards.map((c, index) => (
             <div
               className={`${

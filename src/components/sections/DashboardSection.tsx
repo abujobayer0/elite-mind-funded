@@ -43,11 +43,11 @@ export default function DashboardSection() {
           {/* Dashboard Mockup */}
           <div className="px-6">
             <div className="rounded-4xl p-2 mb-10 bg-white/10 backdrop-blur-sm border border-white/10">
-              <div className="h-[530px] bg-black/70 relative overflow-hidden rounded-3xl border border-white/10">
-                {/* Left Sidebar */}
-                <div className="absolute left-0 top-0 bottom-0 w-64 bg-black/80 backdrop-blur-sm border-r border-white/10 p-4 space-y-2 hidden md:block">
+              <div className=" h-[260px] xl:h-[600px] lg:h-[460px] md:h-[400px] sm:h-[300px] bg-black/70 relative overflow-hidden rounded-3xl border border-white/10">
+                <img src="/assets/dashboard.svg" alt="" className="w-full" />
+
+                {/* <div className="absolute left-0 top-0 bottom-0 w-64 bg-black/80 backdrop-blur-sm border-r border-white/10 p-4 space-y-2 hidden md:block">
                   <div className="h-3"></div>
-                  {/* Navigation Items */}
                   {[
                     {
                       name: "Dashboard",
@@ -76,12 +76,10 @@ export default function DashboardSection() {
                       {item.name}
                     </div>
                   ))}
-                </div>
+                </div> */}
 
-                {/* Main Content */}
-                <div className="absolute inset-0 md:left-64 p-6 overflow-hidden">
+                {/* <div className="absolute inset-0 md:left-64 p-6 overflow-hidden">
                   <div className="h-6"></div>
-                  {/* Header */}
                   <div className="flex items-center justify-between mb-8">
                     <div>
                       <h1 className="text-white text-2xl font-bold mb-1">
@@ -99,7 +97,6 @@ export default function DashboardSection() {
                     </div>
                   </div>
 
-                  {/* Portfolio Value */}
                   <div className="mb-8">
                     <div className="text-white/60 text-sm font-medium mb-2">
                       Portfolio Value
@@ -109,7 +106,6 @@ export default function DashboardSection() {
                     </div>
                   </div>
 
-                  {/* Assets Section */}
                   <div className="mb-6">
                     <div className="flex items-center justify-between mb-4">
                       <h2 className="text-white text-xl font-semibold">
@@ -156,9 +152,7 @@ export default function DashboardSection() {
 
                     <div className="h-[1px] w-full bg-white/10 mb-4"></div>
 
-                    {/* Assets Table */}
                     <div className="bg-[#ffffff09] rounded-2xl border border-white/10 overflow-hidden">
-                      {/* Table Header */}
                       <div className="grid grid-cols-4 gap-6 px-6 py-4 border-b border-white/10">
                         <div className="text-white/80 text-sm font-medium flex items-center">
                           Assets <EllipsisVertical size={16} />
@@ -174,7 +168,6 @@ export default function DashboardSection() {
                         </div>
                       </div>
 
-                      {/* ETH Row */}
                       <div className="grid grid-cols-4 gap-6 px-6 py-4 border-b border-white/5">
                         <div className="flex items-center gap-3">
                           <ETHIcon />
@@ -192,7 +185,6 @@ export default function DashboardSection() {
                         </div>
                       </div>
 
-                      {/* MATIC Row */}
                       <div className="grid grid-cols-4 gap-6 px-6 py-4">
                         <div className="flex items-center gap-3">
                           <MATICIcon />
@@ -211,7 +203,7 @@ export default function DashboardSection() {
                       </div>
                     </div>
                   </div>
-                </div>
+                </div> */}
               </div>
             </div>
           </div>

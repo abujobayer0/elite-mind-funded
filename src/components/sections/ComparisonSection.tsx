@@ -1,12 +1,11 @@
 "use client";
 
 import { SectionHeader, ComparisonTable } from "@/components";
-import CheckIcon from "../ui/CheckIcon";
 
 export default function ComparisonSection() {
   return (
-    <section className="relative bg-black py-20">
-      <div className="max-w-7xl w-full mx-auto px-4 sm:px-6 md:px-12 lg:px-22 xl:px-32">
+    <section className="relative bg-black py-12 sm:py-16 md:py-20">
+      <div className="max-w-7xl w-full mx-auto px-4 px-6 lg:px-8">
         <SectionHeader
           badge="Comparison Table"
           title={
@@ -15,10 +14,10 @@ export default function ComparisonSection() {
             </>
           }
           subtitle="Be A Part Of The EMF Community And Experience The Most Competitive Demo Trading Environment."
-          className="text-center mb-10"
+          className="text-center mb-8 sm:mb-10"
         />
 
-        <div className="h-10"></div>
+        <div className="h-6 sm:h-8 md:h-10"></div>
         <ComparisonTable />
       </div>
     </section>

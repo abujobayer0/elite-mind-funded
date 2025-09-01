@@ -50,8 +50,8 @@ export default function ProfitCalculatorSection() {
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8 border border-[#f6a91b]/70 rounded-2xl p-3">
           {/* Left: Controls */}
-          <div className="rounded-2xl border border-white/10 p-6 md:p-8">
-            <h3 className="text-white text-2xl font-semibold mb-6">
+          <div className="rounded-2xl border border-white/10 p-4 sm:p-6 md:p-8">
+            <h3 className="text-white text-xl sm:text-2xl font-semibold mb-6">
               How Much Can You Get?
             </h3>
             <div className="space-y-6">
@@ -92,15 +92,15 @@ export default function ProfitCalculatorSection() {
           </div>
 
           {/* Right: Results */}
-          <div className="rounded-2xl border border-white/10 p-6 md:p-8  flex items-center justify-center">
+          <div className="rounded-2xl border border-white/10 p-4 sm:p-6 md:p-8 flex items-center justify-center">
             <div className="bg-gradient-to-bl from-[#f6a91b]/10 to-transparent border border-[#f6a91b]/30 w-full h-full rounded-2xl">
               <div className="space-y-4 p-4 h-full flex flex-col items-center justify-center">
                 {/* Golden Profit Card */}
-                <div className="rounded-2xl bg-gradient-to-r from-[#f6a91b] to-[#e6971a] px-8 py-4 text-center ring-5 ring-[#f6a91b]/20">
-                  <p className="text-black/70 text-sm font-medium mb-2">
+                <div className="rounded-2xl bg-gradient-to-r from-[#f6a91b] to-[#e6971a] px-4 sm:px-8 py-3 sm:py-4 text-center ring-5 ring-[#f6a91b]/20">
+                  <p className="text-black/70 text-xs sm:text-sm font-medium mb-2">
                     Your Calculated Profit:
                   </p>
-                  <p className="text-black text-5xl font-bold">
+                  <p className="text-black text-3xl sm:text-4xl md:text-3xl lg:text-5xl font-bold">
                     {calculatedProfit.toLocaleString("en-US", {
                       style: "currency",
                       currency: "USD",
@@ -110,10 +110,10 @@ export default function ProfitCalculatorSection() {
 
                 {/* Challenge Cost */}
                 <div className="text-center">
-                  <p className="text-white text-md font-normal mb-2">
+                  <p className="text-white text-sm md:text-md font-normal mb-2">
                     Challenge Cost:
                   </p>
-                  <p className="text-white text-4xl font-bold">
+                  <p className="text-white text-2xl sm:text-3xl md:text-4xl font-bold">
                     {challengeCost.toLocaleString("en-US", {
                       style: "currency",
                       currency: "USD",

@@ -21,7 +21,7 @@ export default function EvaluationModelSelector({
 }: EvaluationModelSelectorProps) {
   return (
     <div className="flex justify-center mb-8">
-      <div className="p-1 flex gap-4">
+      <div className="p-1 flex gap-2 sm:gap-4">
         {models.map((model) => (
           <Button
             key={model.id}

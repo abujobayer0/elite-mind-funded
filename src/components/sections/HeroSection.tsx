@@ -1,6 +1,6 @@
 "use client";
 
-import { Button, SectionHeader } from "@/components";
+import { Button, SectionHeader, StatsBar } from "@/components";
 import HeroGlow from "../icons/HeroGlow";
 import CheckIcon from "../ui/CheckIcon";
 import StarIcon from "../icons/StarIcon";
@@ -9,16 +9,16 @@ import HeroLeftShape from "../shapes/HeroLeftShape";
 
 export default function HeroSection() {
   return (
-    <section className="relative bg-black h-[780px] flex items-center justify-center overflow-hidden">
+    <section className="relative bg-black h-[900px] md:h-[780px] flex items-center justify-center overflow-hidden">
       <div className="w-full h-full  absolute inset-0">
         <div className="absolute bottom-0 left-1/2 transform -translate-x-1/2">
           <HeroGlow />
         </div>
         <div className="absolute bottom-0 top-0 left-1/2 transform -translate-x-1/2 min-w-[1800px] w-full h-full mx-auto  md:flex items-center justify-between gap-60 hidden">
-          <div className="transform translate-y-[20%] w-1/2 h-full ">
+          <div className="transform 4xl:translate-y-[26%] translate-y-[39.5%] w-1/2 h-full ">
             <HeroLeftShape />
           </div>
-          <div className="transform translate-y-[20%] w-1/2 h-full ">
+          <div className="transform 4xl:translate-y-[26%] translate-y-[39.5%] w-1/2 h-full ">
             <HeroRightShape />
           </div>
         </div>
@@ -30,11 +30,12 @@ export default function HeroSection() {
             <>
               We Fund Traders
               <img
-                className="inline-block h-[62px] object-contain"
+                className="h-[62px] object-contain hidden sm:inline-block"
                 src="/assets/hero-icons.png"
                 alt=""
               />
-              Up to $200k
+              <br className="sm:hidden" />
+              <span className="text-[#f6a91b] sm:text-white">Up to $200k</span>
             </>
           }
           subtitle={
@@ -49,7 +50,7 @@ export default function HeroSection() {
         />
 
         {/* CTA Buttons */}
-        <div className="flex flex-col sm:flex-row gap-4 justify-center mb-6">
+        <div className="flex flex-row gap-4 justify-center mb-6">
           <Button href="/get-funded" variant="outline">
             Get Funded Now
           </Button>
@@ -59,24 +60,26 @@ export default function HeroSection() {
         </div>
 
         {/* Key Benefits */}
-        <div className="flex flex-col md:flex-row justify-center items-center space-y-4 md:space-y-0 md:space-x-4 mb-4">
-          <div className="flex items-center justify-center space-x-3 gradient_bg_dark h-[50px] w-[200px] rounded-xl ">
-            <CheckIcon width={16} height={16} strokeColor="white" />
-            <span className="text-white text-[14px] font-medium">
-              100% Profit Split
-            </span>
-          </div>
-          <div className="flex items-center justify-center space-x-3 gradient_bg_dark h-[50px] w-[200px] rounded-xl">
-            <CheckIcon width={16} height={16} strokeColor="white" />
-            <span className="text-white text-[14px] font-medium">
-              4 Hr Average Payout
-            </span>
-          </div>
-          <div className="flex items-center justify-center space-x-3 gradient_bg_dark h-[50px] w-[200px] rounded-xl">
-            <CheckIcon width={16} height={16} strokeColor="white" />
-            <span className="text-white text-[14px] font-medium">
-              Get Paid Every 7 Days
-            </span>
+        <div className="flex justify-center">
+          <div className="grid grid-cols-2 md:grid-cols-3 gap-4 justify-items-center mb-4">
+            <div className="flex items-center justify-center space-x-3 gradient_bg_dark h-[50px] w-[200px] rounded-xl">
+              <CheckIcon width={16} height={16} strokeColor="white" />
+              <span className="text-white text-[14px] font-medium">
+                100% Profit Split
+              </span>
+            </div>
+            <div className="flex items-center justify-center space-x-3 gradient_bg_dark h-[50px] w-[200px] rounded-xl">
+              <CheckIcon width={16} height={16} strokeColor="white" />
+              <span className="text-white text-[14px] font-medium">
+                4 Hr Average Payout
+              </span>
+            </div>
+            <div className="flex items-center justify-center space-x-3 gradient_bg_dark h-[50px] w-[200px] rounded-xl col-span-2 md:col-span-1">
+              <CheckIcon width={16} height={16} strokeColor="white" />
+              <span className="text-white text-[14px] font-medium">
+                Get Paid Every 7 Days
+              </span>
+            </div>
           </div>
         </div>
 
@@ -113,61 +116,7 @@ export default function HeroSection() {
           </div>
         </div>
 
-        <div className="flex flex-col md:flex-row items-start p-6 md:p-[24px_44px] max-w-[1060px] w-full md:h-[135px] mx-auto mt-8 bg-gradient-to-b from-[rgba(8,8,9,0)] to-[rgba(246,169,28,0.1)] border-[0.5px] border-white/10 rounded-[16px] outline outline-[rgba(246,169,28,0.2)] outline-offset-12">
-          {/* Mobile Layout (flex-col) and Desktop Layout (flex-row) */}
-          <div className="flex flex-col space-y-8 md:hidden w-full">
-            {/* First Row: Total Accounts and Active Traders */}
-            <div className="flex justify-between border-b border-white/10 pb-4">
-              {/* Total Accounts */}
-              <div className="text-center flex-1">
-                <div className="text-3xl font-bold text-white mb-1">100K+</div>
-                <div className="text-gray-300 text-sm">Total Accounts</div>
-              </div>
-
-              {/* Divider */}
-              <div className="w-px bg-white/10 mx-2"></div>
-
-              {/* Active Traders */}
-              <div className="text-center flex-1">
-                <div className="text-3xl font-bold text-white mb-1">50K+</div>
-                <div className="text-gray-300 text-sm">Active Traders</div>
-              </div>
-            </div>
-
-            {/* Second Row: Total Payouts */}
-            <div className="text-center">
-              <div className="text-4xl font-bold text-white mb-1">$5M+</div>
-              <div className="text-gray-300 text-sm">Total Payouts</div>
-            </div>
-          </div>
-
-          {/* Desktop Layout (Original) */}
-          <div className="hidden md:flex md:flex-row w-full">
-            {/* Total Accounts */}
-            <div className="text-center flex-1">
-              <div className="text-4xl md:text-5xl font-bold text-white mb-2">
-                100K+
-              </div>
-              <div className="text-gray-300 text-lg">Total Accounts</div>
-            </div>
-
-            {/* Active Traders */}
-            <div className="text-center flex-1">
-              <div className="text-4xl md:text-5xl font-bold text-white mb-2">
-                50K+
-              </div>
-              <div className="text-gray-300 text-lg">Active Traders</div>
-            </div>
-
-            {/* Total Payouts */}
-            <div className="text-center flex-1">
-              <div className="text-4xl md:text-5xl font-bold text-white mb-2">
-                $5M+
-              </div>
-              <div className="text-gray-300 text-lg">Total Payouts</div>
-            </div>
-          </div>
-        </div>
+        <StatsBar />
       </div>
     </section>
   );
