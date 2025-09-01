@@ -225,7 +225,7 @@ export default function DashboardSection() {
             }}
           ></div>
           {/* Steps */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8 -mt-[140px] relative z-50">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8 -mt-[140px] relative z-10">
             <StepCard
               title="Trade & Get Paid"
               description="Our Dedicated Support team is always here to help."
