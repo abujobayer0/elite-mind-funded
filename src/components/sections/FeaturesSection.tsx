@@ -16,7 +16,6 @@ export default function FeaturesSection() {
       subtitle:
         "Our simulated trading accounts do not have any commissions on your trading lots.",
       icon: RocketIcon,
-      highlighted: false,
     },
     {
       id: 2,
@@ -24,7 +23,6 @@ export default function FeaturesSection() {
       subtitle:
         "The pride funding promises to send the Reward within 24hr after your approval.",
       icon: DollarSignIcon,
-      highlighted: true,
     },
     {
       id: 3,
@@ -32,7 +30,6 @@ export default function FeaturesSection() {
       subtitle:
         "Our funded accounts has lowest spread compare to any other prop trading firms.",
       icon: ClockIcon,
-      highlighted: false,
     },
     {
       id: 4,
@@ -40,7 +37,6 @@ export default function FeaturesSection() {
       subtitle:
         "The pride funding offers 24/7 live chat support for any kind of queries by traders.",
       icon: SecurityIcon,
-      highlighted: false,
     },
   ];
 
@@ -66,11 +62,7 @@ export default function FeaturesSection() {
             return (
               <div
                 key={feature.id}
-                className={`rounded-2xl text-left bg-white/5  p-[34px] ${
-                  feature.highlighted
-                    ? " border border-[#F6A91C]"
-                    : "bg-transparent p-6"
-                }`}
+                className="rounded-2xl text-left bg-white/5 p-[34px] border border-transparent transition-all duration-300 hover:border-[#F6A91C] cursor-pointer"
               >
                 <div
                   className={`mb-4 w-12 h-12 rounded-xl flex items-center justify-center bg-[#1a1a1a]`}
@@ -80,11 +72,7 @@ export default function FeaturesSection() {
                 <h3 className="mb-2 text-white text-lg font-medium">
                   {feature.title}
                 </h3>
-                <p
-                  className={`text-sm font-normal leading-relaxed ${
-                    feature.highlighted ? "text-gray-300" : "text-gray-400"
-                  }`}
-                >
+                <p className="text-sm font-normal leading-relaxed text-gray-400">
                   {feature.subtitle}
                 </p>
               </div>
