@@ -1,15 +1,24 @@
 "use client";
 
-import { GradientSection, SectionHeader, TierCard } from "@/components";
+import {
+  CalendarTimeIcon,
+  GradientSection,
+  ProfitIcon,
+  SectionHeader,
+  TierCard,
+} from "@/components";
 
 export default function AffiliateTiersSection() {
   const tiers = [
     {
       title: "Starter",
-      highlighted: false,
       stats: [
-        { label: "Commission", value: "8%" },
-        { label: "Monthly Referrals", value: "1-40" },
+        { label: "Commission", value: "8%", icon: <ProfitIcon /> },
+        {
+          label: "Monthly Referrals",
+          value: "1-40",
+          icon: <CalendarTimeIcon />,
+        },
         { label: "Free Challenge", value: "-" },
       ],
       description:
@@ -17,10 +26,13 @@ export default function AffiliateTiersSection() {
     },
     {
       title: "Pro",
-      highlighted: false,
       stats: [
-        { label: "Commission", value: "10%" },
-        { label: "Monthly Referrals", value: "41-100" },
+        { label: "Commission", value: "10%", icon: <ProfitIcon /> },
+        {
+          label: "Monthly Referrals",
+          value: "41-100",
+          icon: <CalendarTimeIcon />,
+        },
         { label: "Free Challenge", value: "-" },
       ],
       description:
@@ -28,10 +40,13 @@ export default function AffiliateTiersSection() {
     },
     {
       title: "Elite",
-      highlighted: true,
       stats: [
-        { label: "Commission", value: "12.5%" },
-        { label: "Monthly Referrals", value: "101-300" },
+        { label: "Commission", value: "12.5%", icon: <ProfitIcon /> },
+        {
+          label: "Monthly Referrals",
+          value: "101-300",
+          icon: <CalendarTimeIcon />,
+        },
         { label: "Free Challenge", value: "-" },
       ],
       description:
@@ -52,15 +67,15 @@ export default function AffiliateTiersSection() {
           subtitle="Join Our Affiliate Program, Refer Your Unique Link To Your Community"
           className="text-center mb-10"
         />
-
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8">
+      </div>
+      <div className="max-w-5xl mx-auto">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8 ">
           {tiers.map((tier) => (
             <TierCard
               key={tier.title}
               title={tier.title}
               stats={tier.stats}
               description={tier.description}
-              highlighted={tier.highlighted}
             />
           ))}
         </div>

@@ -2,9 +2,7 @@
 
 import { useMemo, useState } from "react";
 import {
-  Badge,
   RangeSlider,
-  MetricBox,
   Button,
   GradientSection,
   SectionHeader,

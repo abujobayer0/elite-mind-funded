@@ -1,23 +1,38 @@
 "use client";
 
-import { SectionHeader, Button, AffiliateFeatureCard } from "@/components";
+import {
+  SectionHeader,
+  Button,
+  AffiliateFeatureCard,
+  ExportIcon,
+  ShareIcon,
+  DollarCircleIcon,
+} from "@/components";
+import Link from "next/link";
 
 export default function AffiliateProgramSection() {
   const features = [
     {
       title: "Sign Up",
       subtitle: "Create your Profile quickly.",
-      highlighted: false,
+      icon: <ExportIcon />,
     },
     {
       title: "Share your Link",
       subtitle: "Share your unique Link on social media.",
-      highlighted: true,
+      icon: <ShareIcon />,
     },
     {
       title: "Get Paid",
       subtitle: "Get Paid up to 20% of all revenue.",
-      highlighted: false,
+      icon: (
+        <span className="relative w-full h-full">
+          <DollarCircleIcon
+            className="text-white absolute left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-[10px]"
+            size={26}
+          />
+        </span>
+      ),
     },
   ];
 
@@ -28,7 +43,9 @@ export default function AffiliateProgramSection() {
           badge="Affiliate Program"
           title={
             <>
-              Refer & Earn <span className="text-[#f6a91b]">Big</span> With EMF
+              <span className="text-[#f6a91b]"> Refer </span> & Earn{" "}
+              <span className="text-[#f6a91b]">Big</span> With{" "}
+              <span className="text-[#f6a91b]"> EMF</span>
             </>
           }
           subtitle={
@@ -38,22 +55,50 @@ export default function AffiliateProgramSection() {
                 Simple. Get Started Today!
               </p>
               <div className="flex items-center justify-center gap-4">
-                <Button
+                <Link
                   href="/affiliate"
-                  variant="primary"
-                  size="md"
-                  className="w-auto px-6"
+                  className="relative flex flex-row justify-center items-center px-6 py-[10px] gap-[6px] w-[213.86px] h-[42px] bg-gradient-to-t from-[rgba(246,169,28,0.4)] to-[rgba(246,169,28,0)] backdrop-blur-[25px] rounded-[999px] text-white text-normal text-sm overflow-hidden group transition-all duration-300 hover:shadow-lg hover:shadow-[rgba(246,169,28,0.3)]"
                 >
-                  Become An Affiliate ↗
-                </Button>
-                <Button
+                  <div className="absolute inset-0 bg-gradient-to-t from-[rgba(246,169,28,0)] to-[rgba(246,169,28,0.8)] opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-[999px]"></div>
+                  <span className="relative z-10">Become An Affiliate</span>
+                  <svg
+                    width="23"
+                    height="22"
+                    viewBox="0 0 23 22"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                    className="relative z-10"
+                  >
+                    <path
+                      d="M8.90518 15.6189L14.2385 6.38135M14.2385 6.38135L15.7026 11.8454M14.2385 6.38135L8.77441 7.84545"
+                      stroke="white"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    />
+                  </svg>
+                </Link>
+                <Link
                   href="/affiliate/login"
-                  variant="ghost"
-                  size="md"
-                  className="w-auto px-6 border border-white/10"
+                  className="relative flex flex-row justify-center items-center px-6 py-[10px] gap-[6px] w-[171.86px] h-[42px] bg-gradient-to-b from-[rgba(255,255,255,0)] to-[rgba(255,255,255,0.2)] backdrop-blur-[25px] rounded-[999px] text-sm text-normal text-white overflow-hidden group transition-all duration-300 hover:shadow-lg hover:shadow-[rgba(255,255,255,0.2)]"
                 >
-                  Affiliate Login ↗
-                </Button>
+                  <div className="absolute inset-0 bg-gradient-to-t from-[rgba(255,255,255,0)] to-[rgba(255,255,255,0.4)] opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-[999px]"></div>
+                  <span className="relative z-10">Affiliate Login</span>
+                  <svg
+                    width="23"
+                    height="22"
+                    viewBox="0 0 23 22"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                    className="relative z-10"
+                  >
+                    <path
+                      d="M8.90518 15.6189L14.2385 6.38135M14.2385 6.38135L15.7026 11.8454M14.2385 6.38135L8.77441 7.84545"
+                      stroke="white"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    />
+                  </svg>
+                </Link>
               </div>
             </>
           }
@@ -67,7 +112,7 @@ export default function AffiliateProgramSection() {
               key={f.title}
               title={f.title}
               subtitle={f.subtitle}
-              highlighted={f.highlighted}
+              icon={f.icon}
             />
           ))}
         </div>

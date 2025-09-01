@@ -1,44 +1,43 @@
 "use client";
 
-import { Badge, TimelineStep } from "@/components";
+import { Badge, FramerScrollProgressSteps } from "@/components";
 
 export default function AffiliateHowItWorksSection() {
   const steps = [
     {
-      step: 1,
+      id: "generate-link",
       title: "Generate your affiliate link",
       description:
         "Purchase any challenge on our app and you will automatically be eligible for a unique link to start promoting on your favourite platform.",
-      position: "right" as const,
-      highlighted: true,
+      color: "#f6a91b",
     },
     {
-      step: 2,
+      id: "promote-emf",
       title: "Promote EMF",
       description:
         "Promote EMF online using any social media platform, a unique cookie will be set on the users side so even if they buys later, you will be eligible for a commission.",
-      position: "left" as const,
+      color: "#4ade80",
     },
     {
-      step: 3,
+      id: "monitor-results",
       title: "Monitor Results",
       description:
         "You can track all the purchases that have happened through your link by visiting the affiliate dashboard.",
-      position: "right" as const,
+      color: "#3b82f6",
     },
     {
-      step: 4,
+      id: "reward-time",
       title: "Reward Time",
       description:
         "You can request for a reward on the rewards page when you are eligible for a reward.",
-      position: "left" as const,
+      color: "#8b5cf6",
     },
   ];
 
   return (
     <section className="relative bg-black py-20">
       <div className="max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-10">
+        <div className="text-center mb-16">
           <Badge>How It Works</Badge>
           <h2 className="text-white text-3xl md:text-5xl font-bold mt-4">
             How <span className="text-[#f6a91b]">EMF</span> Affiliate Works?
@@ -49,18 +48,8 @@ export default function AffiliateHowItWorksSection() {
           </p>
         </div>
 
-        <div className="max-w-4xl mx-auto">
-          {steps.map((s, idx) => (
-            <div key={s.step} className="mb-16 last:mb-0">
-              <TimelineStep
-                step={s.step}
-                title={s.title}
-                description={s.description}
-                position={s.position}
-                highlighted={s.highlighted}
-              />
-            </div>
-          ))}
+        <div className="max-w-6xl mx-auto">
+          <FramerScrollProgressSteps steps={steps} />
         </div>
       </div>
     </section>

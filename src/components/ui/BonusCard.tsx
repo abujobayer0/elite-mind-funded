@@ -1,4 +1,5 @@
 import React from "react";
+import { TrophyIcon } from "@/components";
 
 interface BonusCardProps {
   title: string; // e.g., "50k" or "$100k"
@@ -8,10 +9,10 @@ interface BonusCardProps {
 
 export default function BonusCard({ title, subtitle, badge }: BonusCardProps) {
   return (
-    <div className="rounded-xl border border-white/10 bg-[#0f0f0f] p-6 md:p-8">
+    <div className="border border-white/10 p-6 md:p-8 transition-all duration-300 hover:bg-gradient-to-b hover:from-[rgba(3,0,31,0)] hover:to-[rgba(246,169,28,0.2)]">
       <div className="flex items-center justify-between mb-6">
-        <div className="w-9 h-9 rounded-full bg-white/5 flex items-center justify-center">
-          🏆
+        <div className="w-9 h-9 flex items-center justify-center">
+          <TrophyIcon />
         </div>
         {badge ? (
           <div className="px-3 py-1 rounded-full bg-[#f6a91b] text-[#191c49] text-xs font-semibold">

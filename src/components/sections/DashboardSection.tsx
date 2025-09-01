@@ -10,10 +10,13 @@ import {
   CardIcon,
   ArrowsIcon,
   MinusCircleIcon,
+  ChallengeIcon,
 } from "@/components";
 import ETHIcon from "../icons/ETHIcon";
 import MATICIcon from "../icons/MATICIcon";
 import { EllipsisVertical } from "lucide-react";
+import GiveIcon from "../icons/GiveIcon";
+import SquireStar from "../icons/SquireStar";
 
 export default function DashboardSection() {
   return (
@@ -227,16 +230,19 @@ export default function DashboardSection() {
               title="Trade & Get Paid"
               description="Our Dedicated Support team is always here to help."
               step="3 Step"
+              icon={<GiveIcon />}
             />
             <StepCard
               title="Unlock Capital"
               description="Receive Payouts with a High Profit Split."
               step="2 Step"
+              icon={<SquireStar />}
             />
             <StepCard
               title="Take a Challenge"
               description="Trade you with our capital without being liable."
               step="1 Step"
+              icon={<ChallengeIcon />}
             />
           </div>
         </div>

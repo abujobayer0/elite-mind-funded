@@ -37,14 +37,14 @@ export default function AffiliateBonusSection() {
           badge="Bonus"
           title={
             <>
-              Elite Mind Funding <span className="text-[#f6a91b]">Bonus</span>
+              <span className="text-[#f6a91b]">Elite Mind Funding</span> Bonus
             </>
           }
           subtitle="Whether You're Looking For Speed, Accessibility, Structure, Or Flexibility."
           className="text-center mb-10"
         />
 
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-6 md:gap-6 mb-12">
+        <div className="grid grid-cols-1 md:grid-cols-4 mb-28">
           {items.map((b) => (
             <BonusCard
               key={b.badge}
@@ -55,7 +55,7 @@ export default function AffiliateBonusSection() {
           ))}
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8 rounded-2xl border border-[#f6a91b]/30 p-4 md:p-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8 rounded-2xl border border-[#f6a91b]/70 p-4 md:p-6">
           <div className="rounded-xl border border-white/10 bg-[#0f0f0f] p-6 md:p-8">
             <h3 className="text-white text-2xl font-semibold mb-6">
               How Much Can You Make?
@@ -76,7 +76,6 @@ export default function AffiliateBonusSection() {
                 style: "currency",
                 currency: "USD",
               })}
-              highlighted
             />
           </div>
         </div>
