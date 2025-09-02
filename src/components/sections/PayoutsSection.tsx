@@ -12,13 +12,21 @@ export default function PayoutsSection() {
   const [isInitialized, setIsInitialized] = useState(false);
   const containerRef = useRef<HTMLDivElement>(null);
   const x = useMotionValue(0);
+  const [isTransitioning, setIsTransitioning] = useState(false);
 
-  const items = [
+  const originalItems = [
     { imageSrc: "/assets/traders/image.png", amount: "$9,765" },
     { imageSrc: "/assets/traders/person2.png", amount: "$2,987" },
     { imageSrc: "/assets/traders/person3.png", amount: "$3,816" },
     { imageSrc: "/assets/traders/person4.png", amount: "$5,204" },
     { imageSrc: "/assets/traders/person5.png", amount: "$7,112" },
+  ];
+
+  // Create infinite loop by duplicating items (clone before and after)
+  const items = [
+    ...originalItems, // Clone at beginning for seamless previous navigation
+    ...originalItems, // Original items
+    ...originalItems, // Clone at end for seamless next navigation
   ];
 
   // Calculate card width based on screen size
@@ -51,21 +59,36 @@ export default function PayoutsSection() {
     return () => window.removeEventListener("resize", updateWidth);
   }, [isInitialized]);
 
+  // Initialize to middle section (second set of items) for infinite loop
+  useEffect(() => {
+    if (containerWidth > 0 && isInitialized && currentIndex === 0) {
+      const startIndex = originalItems.length; // Start at second set
+      const newCardWidth = getCardWidth();
+      const newGap = getGap();
+      const newX = -startIndex * (newCardWidth + newGap);
+      x.set(newX);
+      setCurrentIndex(startIndex);
+    }
+  }, [
+    containerWidth,
+    isInitialized,
+    currentIndex,
+    originalItems.length,
+    getCardWidth,
+    getGap,
+    x,
+  ]);
+
   // Update position when container size changes
   useEffect(() => {
-    if (containerWidth > 0 && isInitialized) {
+    if (containerWidth > 0 && isInitialized && currentIndex > 0) {
       // Recalculate position based on current index to avoid jumps
       const newCardWidth = getCardWidth();
       const newGap = getGap();
       const newX = -currentIndex * (newCardWidth + newGap);
-      const newMaxScroll = Math.max(
-        0,
-        (newCardWidth + newGap) * items.length - newGap - containerWidth
-      );
-      const clampedX = Math.max(-newMaxScroll, Math.min(0, newX));
 
       // Set position without animation for resize
-      x.set(clampedX);
+      x.set(newX);
     }
   }, [
     containerWidth,
@@ -77,23 +100,47 @@ export default function PayoutsSection() {
     getGap,
   ]);
 
-  // Calculate max scroll based on content
+  // Calculate card dimensions
   const cardWidth = getCardWidth();
   const gap = getGap();
-  const totalWidth = (cardWidth + gap) * items.length - gap;
-  const maxScroll = Math.max(0, totalWidth - containerWidth);
 
-  // Navigate functions
-  const goToSlide = (index: number) => {
+  // Navigate functions with infinite loop logic
+  const goToSlide = (index: number, skipAnimation = false) => {
+    if (isTransitioning) return;
+
     const newX = -index * (cardWidth + gap);
-    const clampedX = Math.max(-maxScroll, Math.min(0, newX));
+
+    if (skipAnimation) {
+      x.set(newX);
+      setCurrentIndex(index);
+      return;
+    }
+
+    setIsTransitioning(true);
 
     // Animate to the new position smoothly
-    const controls = animate(x, clampedX, {
+    const controls = animate(x, newX, {
       type: "spring",
       stiffness: 400,
       damping: 40,
       mass: 1,
+      onComplete: () => {
+        setIsTransitioning(false);
+        // Handle infinite loop reset
+        if (index >= originalItems.length * 2) {
+          // At end, jump to beginning of second set
+          const resetIndex = originalItems.length;
+          const resetX = -resetIndex * (cardWidth + gap);
+          x.set(resetX);
+          setCurrentIndex(resetIndex);
+        } else if (index < originalItems.length) {
+          // At beginning, jump to end of second set
+          const resetIndex = originalItems.length * 2 - 1;
+          const resetX = -resetIndex * (cardWidth + gap);
+          x.set(resetX);
+          setCurrentIndex(resetIndex);
+        }
+      },
     });
 
     setCurrentIndex(index);
@@ -101,17 +148,19 @@ export default function PayoutsSection() {
   };
 
   const nextSlide = () => {
-    const nextIndex = currentIndex + 1 >= totalSlides ? 0 : currentIndex + 1;
-    goToSlide(nextIndex);
+    if (isTransitioning) return;
+    goToSlide(currentIndex + 1);
   };
 
   const prevSlide = () => {
-    const prevIndex = currentIndex - 1 < 0 ? totalSlides - 1 : currentIndex - 1;
-    goToSlide(prevIndex);
+    if (isTransitioning) return;
+    goToSlide(currentIndex - 1);
   };
 
   // Handle drag end
   const handleDragEnd = (_: unknown, info: { velocity: { x: number } }) => {
+    if (isTransitioning) return;
+
     const currentX = x.get();
     const slideWidth = cardWidth + gap;
 
@@ -124,26 +173,26 @@ export default function PayoutsSection() {
     // Adjust index based on velocity for more natural feel
     if (Math.abs(velocity) > velocityThreshold) {
       if (velocity > 0) {
-        newIndex = Math.max(0, newIndex - 1); // Moving right (showing previous)
+        newIndex = currentIndex - 1; // Moving right (showing previous)
       } else {
-        newIndex = Math.min(items.length - 1, newIndex + 1); // Moving left (showing next)
+        newIndex = currentIndex + 1; // Moving left (showing next)
       }
     }
 
-    const clampedIndex = Math.max(0, Math.min(newIndex, items.length - 1));
-    goToSlide(clampedIndex);
+    // Clamp to valid range for our tripled array
+    newIndex = Math.max(0, Math.min(newIndex, items.length - 1));
+
+    goToSlide(newIndex);
   };
 
-  // Calculate visible slides for indicators
-  const getVisibleSlides = () => {
-    if (typeof window === "undefined") return 1;
-    if (window.innerWidth >= 1024) return 3;
-    if (window.innerWidth >= 640) return 2;
-    return 1;
-  };
+  // Calculate indicators based on original items
+  const totalSlides = originalItems.length;
 
-  const visibleSlides = getVisibleSlides();
-  const totalSlides = Math.max(1, items.length - visibleSlides + 1);
+  // Get current indicator index (map from actual index to original items)
+  const getCurrentIndicatorIndex = () => {
+    const actualIndex = currentIndex % originalItems.length;
+    return actualIndex;
+  };
 
   return (
     <section className="relative bg-black py-20">
@@ -159,7 +208,6 @@ export default function PayoutsSection() {
           subtitle="Hear Directly From Traders Who Have Profited With EMF Funding. Real Stories, Real Results!"
           className="text-center mb-10"
         />
-
         {/* Carousel */}
         <div className="relative overflow-hidden" ref={containerRef}>
           {/* Carousel Container */}
@@ -171,7 +219,7 @@ export default function PayoutsSection() {
             }}
             drag="x"
             dragConstraints={{
-              left: -maxScroll,
+              left: -(cardWidth + gap) * (items.length - 1),
               right: 0,
             }}
             dragElastic={0.2}
@@ -203,8 +251,8 @@ export default function PayoutsSection() {
           </motion.div>
 
           {/* Gradient Overlays for Overflow Indication */}
-          <div className="absolute left-0 top-0 bottom-0 w-36 bg-gradient-to-r from-black/70 to-transparent pointer-events-none z-10" />
-          <div className="absolute right-0 top-0 bottom-0 w-36 bg-gradient-to-l from-black/70 to-transparent pointer-events-none z-10" />
+          <div className="absolute left-0 top-0 bottom-0 w-52 bg-gradient-to-r from-black/90 to-transparent pointer-events-none z-10 hidden md:block" />
+          <div className="absolute right-0 top-0 bottom-0 w-52 bg-gradient-to-l from-black/90 to-transparent pointer-events-none z-10 hidden md:block" />
         </div>
 
         {/* Indicators with Navigation */}
@@ -227,9 +275,9 @@ export default function PayoutsSection() {
             {Array.from({ length: totalSlides }).map((_, idx) => (
               <motion.button
                 key={idx}
-                onClick={() => goToSlide(idx)}
+                onClick={() => goToSlide(originalItems.length + idx)}
                 className={`rounded-full transition-all duration-300 ${
-                  idx === currentIndex
+                  idx === getCurrentIndicatorIndex()
                     ? "w-8 h-2 bg-white"
                     : "w-2 h-2 bg-white/30 hover:bg-white/50"
                 }`}

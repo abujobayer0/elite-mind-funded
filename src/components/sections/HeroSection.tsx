@@ -62,7 +62,7 @@ export default function HeroSection() {
         {/* Key Benefits */}
         <div className="flex justify-center">
           <div className="grid grid-cols-2 md:grid-cols-3 gap-4 justify-items-center mb-4">
-            <div className="flex items-center justify-center space-x-3 gradient_bg_dark h-[50px] w-[200px] rounded-xl">
+            <div className="flex items-center justify-center space-x-3 gradient_bg_dark h-[50px] w-[170px] sm:w-[200px] rounded-xl">
               <CheckIcon width={16} height={16} strokeColor="white" />
               <span className="text-white text-[14px] font-medium">
                 100% Profit Split

@@ -81,7 +81,7 @@ export default function WhyUsSection() {
           </div>
 
           <div
-            className="rounded-2xl transition-all duration-300 relative overflow-hidden"
+            className="rounded-2xl transition-all duration-300 relative overflow-hidden col-span-1 sm:col-span-2 md:max-w-[440px] sm:max-w-[380px] mx-auto w-full lg:col-span-1 lg:max-w-none"
             style={{
               background:
                 "linear-gradient(131.19deg, rgba(246, 169, 28, 0.1) 0.49%, rgba(0, 0, 0, 0) 99.51%)",
