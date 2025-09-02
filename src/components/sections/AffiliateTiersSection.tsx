@@ -69,7 +69,7 @@ export default function AffiliateTiersSection() {
         />
       </div>
       <div className="max-w-5xl mx-auto">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8 ">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-18 md:gap-8 px-6">
           {tiers.map((tier) => (
             <TierCard
               key={tier.title}

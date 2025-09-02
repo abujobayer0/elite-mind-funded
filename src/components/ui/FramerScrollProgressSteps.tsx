@@ -131,7 +131,7 @@ export default function FramerScrollProgressSteps({
       <div className="relative">
         {/* Progress Line - positioned relative to content */}
         <div
-          className="absolute left-1/2 transform -translate-x-1/2 w-1 z-0"
+          className="absolute left-6 md:left-1/2 md:transform md:-translate-x-1/2 w-1 z-0"
           style={{
             top: "0px",
             height: `calc(100% - ${steps.length > 1 ? "0px" : "0px"})`,
@@ -158,7 +158,7 @@ export default function FramerScrollProgressSteps({
             }`}
           >
             {/* Step Indicator - positioned at the top of each step */}
-            <div className="absolute left-1/2 transform -translate-x-1/2 top-0 z-10">
+            <div className="absolute left-6 md:left-1/2 transform -translate-x-1/2 top-0 z-10">
               <StepIndicatorInline
                 index={index}
                 totalSteps={steps.length}
@@ -197,7 +197,7 @@ function StepContent({ step, index, isAlternating }: StepContentProps) {
     <motion.div
       ref={ref}
       className={`step-content w-full flex items-center ${
-        isAlternating ? "flex-row-reverse" : "flex-row"
+        isAlternating ? "md:flex-row-reverse" : "md:flex-row"
       }`}
       initial={{ opacity: 0, y: 50, scale: 0.95 }}
       animate={
@@ -213,30 +213,24 @@ function StepContent({ step, index, isAlternating }: StepContentProps) {
     >
       {/* Left/Right content area */}
       <div
-        className={`w-full max-w-md ${
+        className={`w-full max-w-[360px] lg:max-w-md ml-16 md:ml-0 ${
           isAlternating
-            ? "ml-auto mr-8 md:mr-12 lg:mr-16"
-            : "mr-auto ml-8 md:ml-12 lg:ml-16"
+            ? "md:ml-auto md:mr-12 lg:mr-16"
+            : "md:mr-auto md:ml-12 lg:ml-16"
         }`}
       >
         <motion.div
-          className="step-card rounded-lg p-6 backdrop-filter backdrop-blur-sm shadow-lg"
+          className=" rounded-lg p-6 "
           initial={{
             scale: 0.95,
-            filter: "blur(6px)",
-            borderColor: "rgb(31, 41, 55)",
           }}
           animate={
             isInView
               ? {
                   scale: 1,
-                  filter: "blur(0px)",
-                  borderColor: "rgb(75, 85, 99)",
                 }
               : {
                   scale: 0.95,
-                  filter: "blur(6px)",
-                  borderColor: "rgb(31, 41, 55)",
                 }
           }
           transition={{
@@ -253,12 +247,8 @@ function StepContent({ step, index, isAlternating }: StepContentProps) {
         >
           <motion.h3
             className="text-white text-lg md:text-xl font-semibold mb-3"
-            initial={{ opacity: 0, x: isAlternating ? 20 : -20 }}
-            animate={
-              isInView
-                ? { opacity: 1, x: 0 }
-                : { opacity: 0, x: isAlternating ? 20 : -20 }
-            }
+            initial={{ opacity: 0, x: -20 }}
+            animate={isInView ? { opacity: 1, x: 0 } : { opacity: 0, x: -20 }}
             transition={{
               duration: 0.6,
               delay: 0.4,
@@ -269,12 +259,8 @@ function StepContent({ step, index, isAlternating }: StepContentProps) {
           </motion.h3>
           <motion.p
             className="text-gray-400 text-sm md:text-base leading-relaxed"
-            initial={{ opacity: 0, x: isAlternating ? 20 : -20 }}
-            animate={
-              isInView
-                ? { opacity: 1, x: 0 }
-                : { opacity: 0, x: isAlternating ? 20 : -20 }
-            }
+            initial={{ opacity: 0, x: -20 }}
+            animate={isInView ? { opacity: 1, x: 0 } : { opacity: 0, x: -20 }}
             transition={{
               duration: 0.6,
               delay: 0.6,

@@ -8,14 +8,20 @@ import UserIcon from "../icons/UserIcon";
 export default function Footer() {
   return (
     <footer className="bg-black text-gray-300">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 md:py-8 lg:py-12">
         {/* Upper Section - Main Footer Content */}
-        <div className="grid grid-cols-1 lg:grid-cols-4 gap-8 mb-8">
+        <div className="grid grid-cols-1 lg:grid-cols-4 gap-6 md:gap-8 mb-6 md:mb-8">
           {/* Left Column - Branding and Social */}
-          <div className="space-y-6">
+          <div className="space-y-4 md:space-y-6">
             <div className="flex items-center space-x-3">
               <div className="w-14 h-14">
-                <img src="/assets/EMF-logo.png" alt="" className="h-full" />
+                <Image
+                  src="/assets/EMF-logo.png"
+                  alt="Elite Mind Funding"
+                  width={56}
+                  height={56}
+                  className="h-full w-full object-contain"
+                />
               </div>
             </div>
 
@@ -71,7 +77,7 @@ export default function Footer() {
           </div>
 
           {/* Middle Columns - Navigation */}
-          <div className="lg:col-span-2 grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div className="lg:col-span-2 grid grid-cols-2 sm:grid-cols-3 gap-6 md:gap-8">
             {[
               {
                 title: "Our Links",
@@ -100,15 +106,15 @@ export default function Footer() {
               },
             ].map((column, columnIndex) => (
               <div key={columnIndex}>
-                <h3 className="text-white font-semibold mb-4 text-lg">
+                <h3 className="text-white font-semibold mb-3 md:mb-4 text-base md:text-lg">
                   {column.title}
                 </h3>
-                <div className="space-y-3">
+                <div className="space-y-2 md:space-y-3">
                   {column.links.map((link, linkIndex) => (
                     <Link
                       key={linkIndex}
                       href={link.href}
-                      className="block hover:text-white transition-colors"
+                      className="block hover:text-white transition-colors text-sm md:text-base"
                     >
                       {link.text}
                     </Link>
@@ -119,7 +125,7 @@ export default function Footer() {
           </div>
 
           {/* Right Column - Subscription and Payment */}
-          <div className="space-y-6">
+          <div className="space-y-4 md:space-y-6">
             <div>
               <div className="flex gap-2">
                 <div className="flex-1 relative">
@@ -129,13 +135,13 @@ export default function Footer() {
                   <input
                     type="email"
                     placeholder="Enter your email"
-                    className="w-full px-4 py-2 pl-10 bg-white/5 border border-white/10 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:border-orange-400"
+                    className="w-full px-3 md:px-4 py-2 pl-10 bg-white/5 border border-white/10 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:border-orange-400 text-sm md:text-base"
                   />
                 </div>
                 <Button
                   variant="outline"
                   size="sm"
-                  className=" px-6 py-3 w-auto"
+                  className="px-4 md:px-6 py-2 md:py-3 w-auto text-sm md:text-base"
                   onClick={() => {
                     // Handle subscription logic here
                     console.log("Subscription submitted");
@@ -205,8 +211,10 @@ export default function Footer() {
               </div>
             </div>
 
-            <div className="flex items-center space-x-3">
-              <span className="text-gray-400 text-sm">Proudly Powered By</span>
+            <div className="flex items-center space-x-2 md:space-x-3">
+              <span className="text-gray-400 text-xs md:text-sm">
+                Proudly Powered By
+              </span>
               <div className="w-8 h-8 bg-purple-600 rounded flex items-center justify-center text-white font-bold text-sm">
                 P
               </div>
@@ -215,26 +223,28 @@ export default function Footer() {
         </div>
 
         {/* Bottom Section - Copyright, Policies, and Disclaimer */}
-        <div className="border-t border-gray-800 pt-8">
+        <div className="border-t border-gray-800 pt-6 md:pt-8">
           {/* Copyright and Policy Links */}
-          <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0 mb-6">
-            <div className="text-gray-400">© 2025 Elite Mind Funding</div>
-            <div className="flex space-x-6">
+          <div className="flex flex-col md:flex-row justify-between items-center space-y-3 md:space-y-0 mb-4 md:mb-6">
+            <div className="text-gray-400 text-sm md:text-base">
+              © 2025 Elite Mind Funding
+            </div>
+            <div className="flex flex-wrap justify-center md:justify-start space-x-4 md:space-x-6">
               <Link
                 href="/refund"
-                className="hover:text-white transition-colors"
+                className="hover:text-white transition-colors text-sm md:text-base"
               >
                 Refund Policy
               </Link>
               <Link
                 href="/terms"
-                className="hover:text-white transition-colors"
+                className="hover:text-white transition-colors text-sm md:text-base"
               >
                 Terms & Conditions
               </Link>
               <Link
                 href="/privacy"
-                className="hover:text-white transition-colors"
+                className="hover:text-white transition-colors text-sm md:text-base"
               >
                 Privacy Policy
               </Link>
@@ -242,8 +252,8 @@ export default function Footer() {
           </div>
 
           {/* Disclaimer */}
-          <div className="border-t border-gray-800 pt-6">
-            <p className="text-gray-500 text-sm leading-relaxed text-justify">
+          <div className="border-t border-gray-800 pt-4 md:pt-6">
+            <p className="text-gray-500 text-xs md:text-sm leading-relaxed text-justify">
               This website contains hypothetical performance results and is for
               educational purposes only. Past performance does not guarantee
               future results. Trading involves substantial risk of loss and is
