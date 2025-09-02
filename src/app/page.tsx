@@ -49,7 +49,7 @@ const Page = () => {
             We&apos;re launching Elite Mind Funding - the ultimate platform for
             funded trading accounts.
             <br className="flex md:hidden" />
-            <span className="text-[#f6a91b] font-semibold underline">
+            <span className="text-[#f6a91b] font-semibold">
               {" "}
               Stay Tuned.
             </span>
