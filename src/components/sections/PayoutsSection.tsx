@@ -197,17 +197,24 @@ export default function PayoutsSection() {
   return (
     <section className="relative bg-black py-20">
       <div className="max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8">
-        <SectionHeader
-          badge="Payouts"
-          title={
-            <>
-              Trusted By Traders{" "}
-              <span className="text-[#f6a91b]">Worldwide</span>
-            </>
-          }
-          subtitle="Hear Directly From Traders Who Have Profited With EMF Funding. Real Stories, Real Results!"
-          className="text-center mb-10"
-        />
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.3 }}
+          transition={{ duration: 0.6, ease: "easeOut" }}
+        >
+          <SectionHeader
+            badge="Payouts"
+            title={
+              <>
+                Trusted By Traders{" "}
+                <span className="text-[#f6a91b]">Worldwide</span>
+              </>
+            }
+            subtitle="Hear Directly From Traders Who Have Profited With EMF Funding. Real Stories, Real Results!"
+            className="text-center mb-10"
+          />
+        </motion.div>
         {/* Carousel */}
         <div className="relative overflow-hidden" ref={containerRef}>
           {/* Carousel Container */}

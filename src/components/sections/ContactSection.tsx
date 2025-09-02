@@ -1,5 +1,6 @@
 "use client";
 
+import { motion } from "framer-motion";
 import {
   Button,
   Badge,
@@ -19,9 +20,20 @@ export default function ContactSection() {
     <section className="relative bg-black py-20">
       <div className="max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8">
         {/* Top Section - Two Columns */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 mb-16">
+        <motion.div
+          className="grid grid-cols-1 lg:grid-cols-2 gap-12 mb-16"
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.3 }}
+          transition={{ duration: 0.6, ease: "easeOut" }}
+        >
           {/* Left Column - Contact Information */}
-          <div>
+          <motion.div
+            initial={{ opacity: 0, x: -20 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true, amount: 0.3 }}
+            transition={{ duration: 0.5, ease: "easeOut", delay: 0.1 }}
+          >
             <Badge position="start">Contact Us</Badge>
             <h2 className="text-white text-3xl md:text-5xl font-bold mb-4">
               Fill Out The <span className="text-[#f6a91b]">Form</span>
@@ -61,10 +73,16 @@ export default function ContactSection() {
                 </div>
               </div>
             ))}
-          </div>
+          </motion.div>
 
           {/* Right Column - Contact Form */}
-          <div className="flex flex-col p-[34px] gap-[16px] bg-white/[0.02] border-[0.5px] border-[#F6A91C]/80 backdrop-blur-[25px] rounded-[12px]">
+          <motion.div
+            className="flex flex-col p-[34px] gap-[16px] bg-white/[0.02] border-[0.5px] border-[#F6A91C]/80 backdrop-blur-[25px] rounded-[12px]"
+            initial={{ opacity: 0, x: 20 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true, amount: 0.3 }}
+            transition={{ duration: 0.5, ease: "easeOut", delay: 0.2 }}
+          >
             <form onSubmit={handleSubmit} className="space-y-6">
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <Input
@@ -93,11 +111,17 @@ export default function ContactSection() {
                 <span className="text-xl">→</span>
               </Button>
             </form>
-          </div>
-        </div>
+          </motion.div>
+        </motion.div>
 
         {/* Bottom Section - Three Info Cards */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <motion.div
+          className="grid grid-cols-1 md:grid-cols-3 gap-6"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.2 }}
+          transition={{ duration: 0.5, ease: "easeOut", delay: 0.3 }}
+        >
           {[
             {
               icon: <TimeIcon />,
@@ -164,7 +188,7 @@ export default function ContactSection() {
               )}
             </div>
           ))}
-        </div>
+        </motion.div>
       </div>
     </section>
   );

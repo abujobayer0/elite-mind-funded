@@ -1,3 +1,6 @@
+"use client";
+
+import { motion } from "framer-motion";
 import { Header, Footer, Badge } from "@/components";
 import Link from "next/link";
 
@@ -6,23 +9,49 @@ export default function NotFound() {
     <div className="min-h-screen bg-black">
       <Header />
       <main className="flex-1 flex items-center justify-center py-20">
-        <div className="text-center max-w-2xl mx-auto px-4">
+        <motion.div
+          className="text-center max-w-2xl mx-auto px-4"
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, ease: "easeOut", delay: 0.1 }}
+        >
           {/* 404 Badge */}
-          <Badge>404 Error</Badge>
+          <motion.div
+            initial={{ opacity: 0, scale: 0.8 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.4, ease: "easeOut", delay: 0.2 }}
+          >
+            <Badge>404 Error</Badge>
+          </motion.div>
 
           {/* Main Title */}
-          <h1 className="text-white text-4xl md:text-6xl font-bold mb-4">
+          <motion.h1
+            className="text-white text-4xl md:text-6xl font-bold mb-4"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, ease: "easeOut", delay: 0.3 }}
+          >
             Page Not <span className="text-[#f6a91b]">Found</span>
-          </h1>
+          </motion.h1>
 
           {/* Subtitle */}
-          <p className="text-gray-400 text-lg md:text-xl mb-8 max-w-xl mx-auto">
+          <motion.p
+            className="text-gray-400 text-lg md:text-xl mb-8 max-w-xl mx-auto"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, ease: "easeOut", delay: 0.4 }}
+          >
             The page you&apos;re looking for doesn&apos;t exist or has been
             moved.
-          </p>
+          </motion.p>
 
           {/* Action Buttons */}
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+          <motion.div
+            className="flex flex-col sm:flex-row gap-4 justify-center"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, ease: "easeOut", delay: 0.5 }}
+          >
             <Link
               href="/"
               className="bg-[#f6a91b] text-black hover:bg-[#e59a1a] focus:ring-[#f6a91b] px-8 py-4 rounded-lg font-semibold text-lg transition-all duration-300 inline-flex items-center justify-center"
@@ -35,10 +64,15 @@ export default function NotFound() {
             >
               Contact Support
             </Link>
-          </div>
+          </motion.div>
 
           {/* Additional Info */}
-          <div className="mt-12 text-center">
+          <motion.div
+            className="mt-12 text-center"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, ease: "easeOut", delay: 0.6 }}
+          >
             <p className="text-gray-500 text-sm mb-4">
               Or try these popular pages:
             </p>
@@ -64,8 +98,8 @@ export default function NotFound() {
                 FAQs
               </Link>
             </div>
-          </div>
-        </div>
+          </motion.div>
+        </motion.div>
       </main>
       <Footer />
     </div>

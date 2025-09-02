@@ -1,5 +1,6 @@
 "use client";
 
+import { motion } from "framer-motion";
 import { SectionHeader, BonusCard, RangeSlider, MetricBox } from "@/components";
 import { useMemo, useState } from "react";
 
@@ -33,18 +34,31 @@ export default function AffiliateBonusSection() {
   return (
     <section className="relative bg-black py-20">
       <div className="max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8">
-        <SectionHeader
-          badge="Bonus"
-          title={
-            <>
-              <span className="text-[#f6a91b]">Elite Mind Funding</span> Bonus
-            </>
-          }
-          subtitle="Whether You're Looking For Speed, Accessibility, Structure, Or Flexibility."
-          className="text-center mb-10"
-        />
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.3 }}
+          transition={{ duration: 0.6, ease: "easeOut" }}
+        >
+          <SectionHeader
+            badge="Bonus"
+            title={
+              <>
+                <span className="text-[#f6a91b]">Elite Mind Funding</span> Bonus
+              </>
+            }
+            subtitle="Whether You're Looking For Speed, Accessibility, Structure, Or Flexibility."
+            className="text-center mb-10"
+          />
+        </motion.div>
 
-        <div className="grid grid-cols-1 md:grid-cols-4 mb-28">
+        <motion.div
+          className="grid grid-cols-1 md:grid-cols-4 mb-28"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.2 }}
+          transition={{ duration: 0.5, ease: "easeOut", delay: 0.2 }}
+        >
           {items.map((b) => (
             <BonusCard
               key={b.badge}
@@ -53,9 +67,15 @@ export default function AffiliateBonusSection() {
               badge={b.badge}
             />
           ))}
-        </div>
+        </motion.div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8 rounded-2xl border border-[#f6a91b]/70 p-4 md:p-6">
+        <motion.div
+          className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8 rounded-2xl border border-[#f6a91b]/70 p-4 md:p-6"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.2 }}
+          transition={{ duration: 0.5, ease: "easeOut", delay: 0.3 }}
+        >
           <div className="rounded-xl border border-white/10 bg-[#0f0f0f] p-6 md:p-8">
             <h3 className="text-white text-2xl font-semibold mb-6">
               How Much Can You Make?
@@ -78,7 +98,7 @@ export default function AffiliateBonusSection() {
               })}
             />
           </div>
-        </div>
+        </motion.div>
       </div>
     </section>
   );

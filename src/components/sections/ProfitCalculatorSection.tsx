@@ -1,6 +1,7 @@
 "use client";
 
 import { useMemo, useState } from "react";
+import { motion } from "framer-motion";
 import {
   RangeSlider,
   Button,
@@ -34,7 +35,13 @@ export default function ProfitCalculatorSection() {
   return (
     <GradientSection>
       <div className="max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-10">
+        <motion.div
+          className="text-center mb-10"
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.3 }}
+          transition={{ duration: 0.6, ease: "easeOut" }}
+        >
           <SectionHeader
             badge="Profit Calculator"
             title={
@@ -46,7 +53,7 @@ export default function ProfitCalculatorSection() {
             }
             subtitle="Explore How Much You Can Earn With A Funded Account. No Risk, Just Opportunities!"
           />
-        </div>
+        </motion.div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8 border border-[#f6a91b]/70 rounded-2xl p-3">
           {/* Left: Controls */}

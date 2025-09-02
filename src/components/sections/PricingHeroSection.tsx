@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import { motion } from "framer-motion";
 import {
   Button,
   SectionHeader,
@@ -122,28 +123,46 @@ export default function PricingHeroSection() {
   return (
     <section className="relative bg-black py-20 overflow-hidden">
       <div className="relative z-10 max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 text-center">
-        <SectionHeader
-          badge="Pricing"
-          title={
-            <>
-              <span className="text-[#f6a91b]"> Elite Mind Funding</span>{" "}
-              Pricing
-            </>
-          }
-          subtitle="EMF Is A Leading Trading Firm Committed To Providing Unparalleled Opportunities."
-        />
+        {/* Section Header */}
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, ease: "easeOut" }}
+        >
+          <SectionHeader
+            badge="Pricing"
+            title={
+              <>
+                <span className="text-[#f6a91b]"> Elite Mind Funding</span>{" "}
+                Pricing
+              </>
+            }
+            subtitle="EMF Is A Leading Trading Firm Committed To Providing Unparalleled Opportunities."
+          />
+        </motion.div>
 
         {/* CTA Buttons */}
-        <div className="flex flex-col sm:flex-row gap-4 justify-center mb-6">
+        <motion.div
+          className="flex flex-col sm:flex-row gap-4 justify-center mb-6"
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, ease: "easeOut", delay: 0.2 }}
+        >
           <Button href="/get-funded" variant="outline">
             Get Funded Now
           </Button>
           <Button href="/community" variant="community">
             Join Community
           </Button>
-        </div>
+        </motion.div>
 
-        <div className="flex flex-col sm:flex-row items-center justify-center space-y-4 sm:space-y-0 sm:space-x-8 mb-18">
+        {/* Trust Indicators */}
+        <motion.div
+          className="flex flex-col sm:flex-row items-center justify-center space-y-4 sm:space-y-0 sm:space-x-8 mb-18"
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, ease: "easeOut", delay: 0.3 }}
+        >
           <div className="flex items-center space-x-2">
             <span className="text-white text-sm font-medium">Excellent</span>
             <div className="flex space-x-1">
@@ -173,24 +192,41 @@ export default function PricingHeroSection() {
               Propfirmmatch.com
             </p>
           </div>
-        </div>
+        </motion.div>
 
         {/* Evaluation Model Selection */}
-        <EvaluationModelSelector
-          models={evaluationModels}
-          selectedModel={selectedModel}
-          onModelSelect={setSelectedModel}
-        />
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, ease: "easeOut", delay: 0.4 }}
+        >
+          <EvaluationModelSelector
+            models={evaluationModels}
+            selectedModel={selectedModel}
+            onModelSelect={setSelectedModel}
+          />
+        </motion.div>
 
         {/* Account Size Slider */}
-        <AccountSlider
-          accountSizes={accountSizes}
-          selectedAccountSize={selectedAccountSize}
-          onAccountSizeChange={setSelectedAccountSize}
-        />
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, ease: "easeOut", delay: 0.5 }}
+        >
+          <AccountSlider
+            accountSizes={accountSizes}
+            selectedAccountSize={selectedAccountSize}
+            onAccountSizeChange={setSelectedAccountSize}
+          />
+        </motion.div>
 
         {/* Phase Cards */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-12 mb-16 mx-[12px]">
+        <motion.div
+          className="grid grid-cols-1 md:grid-cols-3 gap-12 mb-16 mx-[12px]"
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, ease: "easeOut", delay: 0.6 }}
+        >
           {phaseData.map((phase) => (
             <PhaseCard
               key={phase.id}
@@ -206,10 +242,16 @@ export default function PricingHeroSection() {
               onStartEvaluation={() => handleStartEvaluation(phase.title)}
             />
           ))}
-        </div>
+        </motion.div>
 
         {/* Payment Options */}
-        <PaymentOptions />
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, ease: "easeOut", delay: 0.7 }}
+        >
+          <PaymentOptions />
+        </motion.div>
       </div>
     </section>
   );

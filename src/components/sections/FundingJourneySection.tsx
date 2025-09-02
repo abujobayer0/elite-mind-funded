@@ -1,5 +1,6 @@
 "use client";
 
+import { motion } from "framer-motion";
 import {
   PlanCard,
   SectionHeader,
@@ -51,7 +52,14 @@ export default function FundingJourneySection() {
   return (
     <GradientSection>
       <div className="max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-10">
+        {/* Section Header */}
+        <motion.div
+          className="text-center mb-10"
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.3 }}
+          transition={{ duration: 0.6, ease: "easeOut" }}
+        >
           <SectionHeader
             badge="Choose Your Account"
             title={
@@ -62,9 +70,16 @@ export default function FundingJourneySection() {
             }
             subtitle="Choose The Account Plan That Best Fits Your Trading Style, Goals, And Personal Preferences."
           />
-        </div>
+        </motion.div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-4 lg:gap-[16px] md:gap-[12px] my-22">
+        {/* Plan Cards */}
+        <motion.div
+          className="grid grid-cols-1 md:grid-cols-3 gap-4 lg:gap-[16px] md:gap-[12px] my-22"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.2 }}
+          transition={{ duration: 0.5, ease: "easeOut", delay: 0.2 }}
+        >
           {cards.map((c, index) => (
             <div
               className={`${
@@ -82,9 +97,17 @@ export default function FundingJourneySection() {
               />
             </div>
           ))}
-        </div>
+        </motion.div>
 
-        <StatsBar />
+        {/* Stats Bar */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.3 }}
+          transition={{ duration: 0.5, ease: "easeOut", delay: 0.3 }}
+        >
+          <StatsBar />
+        </motion.div>
       </div>
     </GradientSection>
   );

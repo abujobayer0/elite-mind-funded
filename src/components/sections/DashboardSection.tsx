@@ -1,5 +1,6 @@
 "use client";
 
+import { motion } from "framer-motion";
 import {
   SectionHeader,
   StepCard,
@@ -28,18 +29,31 @@ export default function DashboardSection() {
       }}
     >
       <div className="max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8">
-        <SectionHeader
-          badge="Our Dashboard"
-          title={
-            <>
-              Trading Made Easy,{" "}
-              <span className="text-[#f6a91b]">For You.</span>
-            </>
-          }
-          subtitle="Your Skills With Our Risk. You're Not Liable For Any Losses."
-          className="text-center mb-10"
-        />
-        <div className="relative">
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.3 }}
+          transition={{ duration: 0.6, ease: "easeOut" }}
+        >
+          <SectionHeader
+            badge="Our Dashboard"
+            title={
+              <>
+                Trading Made Easy,{" "}
+                <span className="text-[#f6a91b]">For You.</span>
+              </>
+            }
+            subtitle="Your Skills With Our Risk. You're Not Liable For Any Losses."
+            className="text-center mb-10"
+          />
+        </motion.div>
+        <motion.div
+          className="relative"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.2 }}
+          transition={{ duration: 0.5, ease: "easeOut", delay: 0.2 }}
+        >
           {/* Dashboard Mockup */}
           <div className="px-6">
             <div className="rounded-4xl p-2 mb-10 bg-white/10 backdrop-blur-sm border border-white/10">
@@ -237,7 +251,7 @@ export default function DashboardSection() {
               icon={<ChallengeIcon />}
             />
           </div>
-        </div>
+        </motion.div>
       </div>
     </section>
   );

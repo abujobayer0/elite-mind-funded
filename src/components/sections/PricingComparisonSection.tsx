@@ -1,5 +1,6 @@
 "use client";
 
+import { motion } from "framer-motion";
 import {
   GradientSection,
   ChartIcon,
@@ -54,21 +55,34 @@ export default function PricingComparisonSection() {
   return (
     <GradientSection>
       <div className="max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8">
-        <SectionHeader
-          badge="Comparison"
-          title={
-            <>
-              Why <span className="text-[#f6a91b]">Elite Mind Funding?</span>
-            </>
-          }
-          subtitle="Whether You're Looking For Speed, Accessibility, Structure, Or Flexibility."
-          className="text-center mb-8 sm:mb-10"
-        />
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.3 }}
+          transition={{ duration: 0.6, ease: "easeOut" }}
+        >
+          <SectionHeader
+            badge="Comparison"
+            title={
+              <>
+                Why <span className="text-[#f6a91b]">Elite Mind Funding?</span>
+              </>
+            }
+            subtitle="Whether You're Looking For Speed, Accessibility, Structure, Or Flexibility."
+            className="text-center mb-8 sm:mb-10"
+          />
+        </motion.div>
 
         <div className="h-6 sm:h-8"></div>
 
         {/* Desktop Layout */}
-        <div className="hidden md:block bg-white/[0.02] border border-white/10 backdrop-filter backdrop-blur-md rounded-[32px] p-6 lg:p-8 mx-auto">
+        <motion.div
+          className="hidden md:block bg-white/[0.02] border border-white/10 backdrop-filter backdrop-blur-md rounded-[32px] p-6 lg:p-8 mx-auto"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.2 }}
+          transition={{ duration: 0.5, ease: "easeOut", delay: 0.2 }}
+        >
           {/* Comparison Rows */}
           <div className="grid grid-cols-4 w-full relative">
             <div className="col-span-1">
@@ -185,10 +199,16 @@ export default function PricingComparisonSection() {
               })}
             </div>
           </div>
-        </div>
+        </motion.div>
 
         {/* Mobile/Tablet Layout */}
-        <div className="md:hidden space-y-6">
+        <motion.div
+          className="md:hidden space-y-6"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.2 }}
+          transition={{ duration: 0.5, ease: "easeOut", delay: 0.2 }}
+        >
           {/* Elite Mind Funding Card - Featured */}
           <div className="bg-white/[0.02] border border-white/10 backdrop-filter backdrop-blur-md rounded-2xl p-4 sm:p-6 relative">
             <div className="absolute top-0 bottom-0 left-0 right-0 bg-gradient-to-r from-[#1e2048] to-[#926932] rounded-2xl -z-10"></div>
@@ -323,7 +343,7 @@ export default function PricingComparisonSection() {
               })}
             </div>
           </div>
-        </div>
+        </motion.div>
       </div>
     </GradientSection>
   );

@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import { motion } from "framer-motion";
 import {
   PhaseCard,
   PaymentOptions,
@@ -119,32 +120,61 @@ export default function EvaluationSection() {
   return (
     <section className="relative bg-black py-20 overflow-hidden">
       <div className="relative z-10 max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 text-center">
-        <SectionHeader
-          badge="Evaluations"
-          title={
-            <>
-              Elite Mind Funding{" "}
-              <span className="text-[#f6a91b]">Evaluations</span>
-            </>
-          }
-          subtitle="Our Multiple Unique Evaluation Models Provide Traders The Opportunity To Trade Without Restrictions."
-        />
+        {/* Section Header */}
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.3 }}
+          transition={{ duration: 0.6, ease: "easeOut" }}
+        >
+          <SectionHeader
+            badge="Evaluations"
+            title={
+              <>
+                Elite Mind Funding{" "}
+                <span className="text-[#f6a91b]">Evaluations</span>
+              </>
+            }
+            subtitle="Our Multiple Unique Evaluation Models Provide Traders The Opportunity To Trade Without Restrictions."
+          />
+        </motion.div>
+
         {/* Evaluation Model Selection */}
-        <EvaluationModelSelector
-          models={evaluationModels}
-          selectedModel={selectedModel}
-          onModelSelect={setSelectedModel}
-        />
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.3 }}
+          transition={{ duration: 0.5, ease: "easeOut", delay: 0.1 }}
+        >
+          <EvaluationModelSelector
+            models={evaluationModels}
+            selectedModel={selectedModel}
+            onModelSelect={setSelectedModel}
+          />
+        </motion.div>
 
         {/* Account Size Slider */}
-        <AccountSlider
-          accountSizes={accountSizes}
-          selectedAccountSize={selectedAccountSize}
-          onAccountSizeChange={setSelectedAccountSize}
-        />
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.3 }}
+          transition={{ duration: 0.5, ease: "easeOut", delay: 0.2 }}
+        >
+          <AccountSlider
+            accountSizes={accountSizes}
+            selectedAccountSize={selectedAccountSize}
+            onAccountSizeChange={setSelectedAccountSize}
+          />
+        </motion.div>
 
         {/* Phase Cards */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-12 mb-16 mx-[12px]">
+        <motion.div
+          className="grid grid-cols-1 md:grid-cols-3 gap-12 mb-16 mx-[12px]"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.2 }}
+          transition={{ duration: 0.5, ease: "easeOut", delay: 0.3 }}
+        >
           {phaseData.map((phase) => (
             <PhaseCard
               key={phase.id}
@@ -160,10 +190,17 @@ export default function EvaluationSection() {
               onStartEvaluation={() => handleStartEvaluation(phase.title)}
             />
           ))}
-        </div>
+        </motion.div>
 
         {/* Payment Options */}
-        <PaymentOptions />
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.3 }}
+          transition={{ duration: 0.5, ease: "easeOut", delay: 0.4 }}
+        >
+          <PaymentOptions />
+        </motion.div>
       </div>
     </section>
   );

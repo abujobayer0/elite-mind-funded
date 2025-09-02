@@ -1,12 +1,20 @@
 "use client";
 
+import { motion } from "framer-motion";
 import { SectionHeader } from "@/components";
 
 export default function WhyUsSection() {
   return (
     <section className="relative bg-black py-20">
       <div className="max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-10">
+        {/* Section Header */}
+        <motion.div
+          className="text-center mb-10"
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.3 }}
+          transition={{ duration: 0.6, ease: "easeOut" }}
+        >
           <SectionHeader
             badge="Why Us"
             title={
@@ -17,9 +25,16 @@ export default function WhyUsSection() {
             subtitle="Be A Part Of The EMF Community And Experience The Most Competitive
             Demo Trading Environment."
           />
-        </div>
+        </motion.div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8 min-h-[1060px] lg:min-h-[320px] md:min-h-[740px] sm:min-h-[600px]">
+        {/* Features Grid */}
+        <motion.div
+          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8 min-h-[1060px] lg:min-h-[320px] md:min-h-[740px] sm:min-h-[600px]"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.2 }}
+          transition={{ duration: 0.5, ease: "easeOut", delay: 0.2 }}
+        >
           <div
             className="rounded-2xl transition-all duration-300 relative overflow-hidden"
             style={{
@@ -109,9 +124,15 @@ export default function WhyUsSection() {
               </div>
             </div>
           </div>
-        </div>
+        </motion.div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8 mt-6 min-h-[660px] sm:min-h-[800px] md:min-h-[280px] lg:min-h-[360px]">
+        <motion.div
+          className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8 mt-6 min-h-[660px] sm:min-h-[800px] md:min-h-[280px] lg:min-h-[360px]"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.2 }}
+          transition={{ duration: 0.5, ease: "easeOut", delay: 0.3 }}
+        >
           <div
             className="rounded-2xl transition-all duration-300 relative overflow-hidden"
             style={{
@@ -169,7 +190,7 @@ export default function WhyUsSection() {
               </div>
             </div>
           </div>
-        </div>
+        </motion.div>
       </div>
     </section>
   );
