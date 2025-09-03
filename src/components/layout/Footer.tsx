@@ -127,21 +127,19 @@ export default function Footer() {
           {/* Right Column - Subscription and Payment */}
           <div className="space-y-4 md:space-y-6">
             <div>
-              <div className="flex gap-2">
-                <div className="flex-1 relative">
-                  <div className="absolute left-3 top-1/2 transform -translate-y-1/2">
-                    <UserIcon />
-                  </div>
+              <div className="flex gap-2 items-stretch">
+                <div className="flex-1 flex items-center gap-3 px-3 md:px-4 py-2 bg-white/5 border border-white/10 rounded-lg focus-within:border-orange-400 min-w-0">
+                  <UserIcon />
                   <input
                     type="email"
                     placeholder="Enter your email"
-                    className="w-full px-3 md:px-4 py-2 pl-10 bg-white/5 border border-white/10 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:border-orange-400 text-sm md:text-base"
+                    className="flex-1 bg-transparent text-white placeholder-gray-400 focus:outline-none text-sm md:text-base min-w-0"
                   />
                 </div>
                 <Button
                   variant="outline"
                   size="sm"
-                  className="px-4 md:px-6 py-2 md:py-3 w-auto text-sm md:text-base"
+                  className="px-4 md:px-6 py-2 md:py-3 text-sm md:text-base flex-shrink-0 w-22"
                   onClick={() => {
                     // Handle subscription logic here
                     console.log("Subscription submitted");

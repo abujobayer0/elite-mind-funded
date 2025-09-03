@@ -77,10 +77,3 @@ export { default as MailIcon } from "./icons/MailIcon";
 export { default as TimeIcon } from "./icons/TimeIcon";
 export { default as TrophyIcon } from "./icons/TrophyIcon";
 export { default as HamburgerIcon } from "./icons/HamburgerIcon";
-
-// Animation Components
-export { default as ScrollReveal } from "./animations/ScrollReveal";
-export {
-  default as StaggerContainer,
-  StaggerItem,
-} from "./animations/StaggerContainer";
