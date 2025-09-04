@@ -1,7 +1,7 @@
 "use client";
 
 import { useRef, useState, useEffect, useCallback } from "react";
-import { motion, useMotionValue, animate } from "motion/react";
+import { motion, useMotionValue, animate } from "framer-motion";
 import { SectionHeader, PayoutCard } from "@/components";
 import ArrowLeft from "../icons/ArrowLeft";
 import ArrowRight from "../icons/ArrowRight";
