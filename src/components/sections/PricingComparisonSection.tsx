@@ -19,8 +19,8 @@ export default function PricingComparisonSection() {
       feature: "Profit Split",
       icon: ChartIcon,
       eliteMindFunding: "90% standard",
-      ftmo: "80%",
-      industryStandard: "80%",
+      ftmo: "90%",
+      industryStandard: "90%",
     },
     {
       feature: "Reward Guarantee",
@@ -145,7 +145,7 @@ export default function PricingComparisonSection() {
             <div className="col-span-1">
               <div className="h-[100px] text-center flex items-center justify-center">
                 <span className="text-white font-semibold text-base lg:text-lg">
-                  FTMO
+                  Industry Standard
                 </span>
               </div>
               {comparisonData.map((row, index) => {
@@ -263,7 +263,9 @@ export default function PricingComparisonSection() {
           {/* FTMO Card */}
           <div className="bg-white/[0.01] border border-white/10 backdrop-filter backdrop-blur-md rounded-2xl p-4 sm:p-6">
             <div className="text-center mb-4">
-              <h3 className="text-white font-bold text-lg sm:text-xl">FTMO</h3>
+              <h3 className="text-white font-bold text-lg sm:text-xl">
+                Industry Standard
+              </h3>
             </div>
             <div className="space-y-3">
               {comparisonData.map((row, index) => {
